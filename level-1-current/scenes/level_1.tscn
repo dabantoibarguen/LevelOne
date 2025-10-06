@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=4 uid="uid://n1dxdop1oey3"]
+
+[ext_resource type="Texture2D" uid="uid://dhhoog6oraph2" path="res://assets/maps/Map Making Room 1 empty.png" id="1_014kd"]
+[ext_resource type="PackedScene" uid="uid://d1vq586f7g6p2" path="res://scenes/jose.tscn" id="2_bswci"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
+texture = ExtResource("1_014kd")
+texture_region_size = Vector2i(50, 50)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+0:0/1 = 1
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+0:0/2 = 2
+1:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+5:0/0 = 0
+5:0/0/z_index = 1
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, 8.46711, 25, 8.46711, 25, 25, -25, 25)
+4:0/0 = 0
+4:0/0/z_index = 1
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, 8.46711, 25, 8.46711, 25, 25, -25, 25)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+3:0/0 = 0
+3:1/0 = 0
+2:2/0 = 0
+2:0/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rus8k"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
+sources/5 = SubResource("TileSetAtlasSource_bswci")
+
+[node name="Level 1" type="Node2D"]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAABQABAAAAAAAAAAAABQADAAAAAAD///r/BQAAAAEAAAAAAPr/BQAAAAEAAAD///n/BQABAAAAAAAAAPn/BQADAAAAAAD///7/BQACAAIAAAAAAP7/BQAAAAEAAAD/////BQAAAAEAAAAAAP//BQAAAAEAAAAAAP3/BQAAAAEAAAD///3/BQAAAAEAAAD///z/BQAAAAEAAAADAPn/BQAAAAAAAAADAPr/BQAAAAEAAAADAPv/BQAFAAAAAAADAPz/BQAFAAEAAAADAP3/BQAFAAIAAAADAP7/BQAAAAEAAAADAP//BQAAAAEAAAADAAAABQAAAAAAAQAEAPn/BQAAAAAAAAAEAPr/BQAAAAEAAAAEAPv/BQAAAAEAAAAEAPz/BQAAAAEAAAAEAP7/BQAAAAEAAAAEAP//BQAAAAEAAAAEAAAABQAAAAAAAQAFAPn/BQAAAAAAAQAFAPr/BQAAAAAAAQAFAPv/BQAAAAAAAQAFAPz/BQAAAAAAAQAFAP3/BQAAAAAAAQAFAP7/BQAAAAAAAQAFAP//BQAAAAAAAQAFAAAABQAAAAAAAQD7//n/BQAAAAAAAAD7//r/BQAAAAEAAAD7//v/BQAAAAEAAAD7//z/BQAAAAEAAAD7//3/BQAAAAEAAAD7//7/BQAAAAEAAAD7////BQAAAAEAAAD7/wAABQAAAAAAAQD8//n/BQAAAAAAAAD8//r/BQAAAAEAAAD8//v/BQAAAAEAAAD8//z/BQAEAAAAAAD8//3/BQAEAAEAAAD8//7/BQAEAAIAAAD8////BQAAAAEAAAD8/wAABQAAAAAAAQD9//n/BQAAAAAAAAD9//r/BQAAAAEAAAD9//v/BQAAAAEAAAD9//z/BQAFAAAAAAD9//3/BQAFAAEAAAD9//7/BQAFAAIAAAD9////BQAAAAEAAAD9/wAABQAAAAAAAQD6//n/BQAAAAAAAQD6//r/BQAAAAAAAQD6//v/BQAAAAAAAQD6//z/BQAAAAIAAAD6//3/BQAAAAIAAAD6//7/BQAAAAIAAAD6////BQAAAAAAAQD6/wAABQAAAAAAAQABAPn/BQAAAAAAAAABAPr/BQAAAAEAAAABAPv/BQACAAIAAAABAPz/BQAAAAEAAAABAP3/BQAAAAEAAAABAP7/BQAAAAEAAAABAP//BQAAAAEAAAABAAAABQAAAAAAAQACAPn/BQAAAAAAAAACAPr/BQAAAAEAAAACAPv/BQAEAAAAAAACAPz/BQAEAAEAAAACAP3/BQAEAAIAAAACAP7/BQAAAAEAAAACAP//BQAAAAEAAAACAAAABQAAAAAAAQD+//n/BQAAAAAAAAD+//r/BQAAAAEAAAD+//v/BQAAAAEAAAD+//z/BQAAAAEAAAD+//3/BQAAAAEAAAD+//7/BQAAAAEAAAD+////BQAAAAEAAAD+/wAABQAAAAAAAQAEAP3/BQAAAAEAAAAAAPv/BQADAAEAAAAAAPz/BQADAAEAAAD///v/BQAAAAEAAAA=")
+tile_set = SubResource("TileSet_rus8k")
+
+[node name="jose" parent="." instance=ExtResource("2_bswci")]
+
+[node name="Camera2D" type="Camera2D" parent="jose"]
