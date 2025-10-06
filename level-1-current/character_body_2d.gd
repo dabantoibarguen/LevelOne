@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	look_at(get_global_mouse_position()) # Current position of mouse, may use
+	#look_at(get_global_mouse_position()) # Current position of mouse, may use
 	
 	velocity = direction * SPEED
 	
@@ -38,12 +38,13 @@ func _input(ev):
 	if ev is InputEventMouseButton: #Mouse clicks
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
-		print(ev)
+		var mouse_pos = get_global_mouse_position()
+		var angle_to_mouse = get_angle_to(mouse_pos)
 		if ev.button_index == 1 and ev.button_mask == 1: # button mask 1 is click down, 0 is up
 			var bullet = bullet_path.instantiate() # Get bullet instance
-			bullet.dir = rotation
+			bullet.dir = angle_to_mouse
 			bullet.pos = $Bullet_Pos.global_position
-			bullet.rot = global_rotation
+			bullet.rot = angle_to_mouse
 			get_parent().add_child(bullet)
 			
 			print(get_global_mouse_position())
