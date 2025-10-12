@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 var pos:Vector2
 var rot:float
 var dir:float
@@ -14,5 +14,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	velocity = Vector2(speed, 0).rotated(dir)
-	move_and_slide()
+	position += (Vector2(speed, 0).rotated(dir))/50
+	
