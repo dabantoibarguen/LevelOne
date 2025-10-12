@@ -151,11 +151,6 @@ animations = [{
 scale = Vector2(1, 0.914704)
 script = ExtResource("1_uyjq6")
 
-[node name="Bullet_Pos" type="Node2D" parent="."]
-position = Vector2(17, 1.09325)
-rotation = 3.14159
-scale = Vector2(0.997411, -1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.11034)
 shape = SubResource("RectangleShape2D_3pkag")
@@ -164,3 +159,8 @@ shape = SubResource("RectangleShape2D_3pkag")
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_m3rwf")
 animation = &"idle_left"
+
+[node name="Bullet_Pos" type="Node2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+rotation = 3.14159
+scale = Vector2(0.997411, -1)
