@@ -4,6 +4,7 @@ var bullet_path = preload("res://bullet_1.tscn")
 
 const SPEED = 450.0
 var idle_dir:String
+var type = "player"
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
