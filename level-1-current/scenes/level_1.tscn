@@ -65,4 +65,10 @@ tile_set = SubResource("TileSet_rus8k")
 zoom = Vector2(1.2, 1.2)
 
 [node name="g_melee" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(-79, -527)
+position = Vector2(-192, -503)
+
+[node name="g_melee2" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(47, -503)
+
+[node name="g_melee3" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(-57, -821)

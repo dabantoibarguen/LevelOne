@@ -8,6 +8,7 @@ var speed = 25
 var offscreen_timer := 0.0
 var offscreen = false
 var dmg = 1
+
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -26,11 +27,15 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 		
 
-func _on_body_entered(body):
-	print(body)
-	if body.name != "jose":
+func _on_body_entered(body: Node2D):
+	if body is CharacterBody2D:
+		if body.type == "enemy":
+			body.take_damage(dmg)
+			queue_free()
+	else:
 		visible = false
 		queue_free()
+		
 	
 func _on_screen_exit():
 	offscreen = true
