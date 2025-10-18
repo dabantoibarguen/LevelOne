@@ -53,3 +53,7 @@ down={
 "deadzone": 0.2,
 "events": []
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
