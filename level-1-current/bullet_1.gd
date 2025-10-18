@@ -3,10 +3,11 @@ var pos:Vector2
 var rot:float
 var dir:float
 
-var speed = 20
+var speed = 25
 
 var offscreen_timer := 0.0
 var offscreen = false
+var dmg = 1
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -21,17 +22,16 @@ func _physics_process(delta: float) -> void:
 	position += (Vector2(speed, 0).rotated(dir))
 	if offscreen:
 		offscreen_timer += delta
-		if offscreen_timer >= 2.0:
-			print("GOONERw")
+		if offscreen_timer >= 1.0:
 			queue_free()
 		
 
 func _on_body_entered(body):
+	print(body)
 	if body.name != "jose":
 		visible = false
 		queue_free()
 	
 func _on_screen_exit():
-	print("GONE")
 	offscreen = true
 	
