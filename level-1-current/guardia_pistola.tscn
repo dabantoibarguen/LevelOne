@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://nbu026lt7153"]
+
+[ext_resource type="Script" uid="uid://0uo1j1ux22d1" path="res://guardia_melee.gd" id="1_85cdm"]
+[ext_resource type="Texture2D" uid="uid://bccr0in61bg4h" path="res://assets/sprite_sheets/imageedit_60_4292215627.png" id="2_sgoi7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85cdm"]
+size = Vector2(34, 53.7793)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5v3dc"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sgoi7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85cdm"]
+
+[node name="g_pistola" type="CharacterBody2D" unique_id=1773188719]
+self_modulate = Color(0, 0, 0, 1)
+script = ExtResource("1_85cdm")
+
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=1464490190]
+position = Vector2(0, 5.11034)
+shape = SubResource("RectangleShape2D_85cdm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=553883566]
+position = Vector2(2, 6)
+scale = Vector2(0.1215933, 0.06443299)
+sprite_frames = SubResource("SpriteFrames_5v3dc")
+animation = &"idle"
+
+[node name="Bullet_Pos" type="Node2D" parent="." unique_id=560649458]
+position = Vector2(-20.000004, 1.9073486e-06)
+rotation = 3.14159
+scale = Vector2(0.997411, -1)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=893196534]
+
+[node name="VisionRay" type="RayCast2D" parent="." unique_id=671948160]
+
+[node name="HearingRange" type="Area2D" parent="." unique_id=1477437198]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HearingRange" unique_id=1117958010]
+z_as_relative = false
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_85cdm")
+
+[node name="SuspicionTimer" type="Timer" parent="." unique_id=559884604]
+
+[node name="LastJosePos" type="Marker2D" parent="." unique_id=311559235]
+
+[connection signal="body_entered" from="HearingRange" to="." method="_on_hearing_range_body_entered"]
+[connection signal="body_exited" from="HearingRange" to="." method="_on_hearing_range_body_exited"]
+[connection signal="body_shape_entered" from="HearingRange" to="." method="_on_hearing_range_body_shape_entered"]
+[connection signal="body_shape_exited" from="HearingRange" to="." method="_on_hearing_range_body_shape_exited"]
