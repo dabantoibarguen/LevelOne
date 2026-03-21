@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1vq586f7g6p2"]
 
-[ext_resource type="Script" uid="uid://7mrwbtl3v3nl" path="res://scenes/Jose/jose.gd" id="1_uyjq6"]
+[ext_resource type="Script" uid="uid://7mrwbtl3v3nl" path="res://scenes/Jose/jose.gd" id="1_ie0vw"]
 [ext_resource type="Texture2D" uid="uid://ba23w4bu4dy85" path="res://assets/sprite_sheets/spritesheet jose 64x64 actual (1).png" id="2_uyjq6"]
 [ext_resource type="AudioStream" uid="uid://iy02t36ne137" path="res://assets/SFX/Jose revolver B.mp3" id="3_givbp"]
 
@@ -258,7 +258,7 @@ animations = [{
 
 [node name="jose" type="CharacterBody2D" unique_id=797937788]
 scale = Vector2(1, 0.914704)
-script = ExtResource("1_uyjq6")
+script = ExtResource("1_ie0vw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290217717]
 position = Vector2(0.5, 2.2293434)
@@ -267,7 +267,7 @@ shape = SubResource("RectangleShape2D_3pkag")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=365216179]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_m3rwf")
-animation = &"idle_up"
+animation = &"move_down"
 
 [node name="Bullet_Pos" type="Node2D" parent="." unique_id=1312031593]
 position = Vector2(3.8147e-06, 0)
