@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://nbu026lt7153"]
+[gd_scene load_steps=0 format=3 uid="uid://nbu026lt7153"]
 
 [ext_resource type="Script" uid="uid://0uo1j1ux22d1" path="res://guardia_melee.gd" id="1_85cdm"]
 [ext_resource type="Texture2D" uid="uid://bccr0in61bg4h" path="res://assets/sprite_sheets/imageedit_60_4292215627.png" id="2_sgoi7"]
