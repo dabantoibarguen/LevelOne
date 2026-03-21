@@ -45,6 +45,6 @@ func _input(ev):
 			bullet.dir = get_angle_to(mouse_pos)
 			bullet.pos = $Bullet_Pos.global_position
 			bullet.rot = get_angle_to(mouse_pos)
-			get_parent().add_child(bullet)
+			self.add_child(bullet)
 	
 	

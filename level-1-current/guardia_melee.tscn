@@ -156,6 +156,10 @@ script = ExtResource("1_85cdm")
 position = Vector2(0, 5.11034)
 shape = SubResource("RectangleShape2D_85cdm")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D"]
+position = Vector2(0, 5.11034)
+shape = SubResource("RectangleShape2D_85cdm")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 9)
 rotation = -3.13878

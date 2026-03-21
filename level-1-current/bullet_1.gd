@@ -29,7 +29,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D):
 	if body is CharacterBody2D:
-		if body.type == "enemy":
+		if body != get_parent():
+			var parent = get_parent()
+			print(parent)
 			body.take_damage(dmg)
 			queue_free()
 	else:
