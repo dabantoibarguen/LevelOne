@@ -1,9 +1,10 @@
 extends Area2D
+
 var pos:Vector2
 var rot:float
 var dir:float
 
-var speed = 25
+var speed = 15
 
 var offscreen_timer := 0.0
 var offscreen = false

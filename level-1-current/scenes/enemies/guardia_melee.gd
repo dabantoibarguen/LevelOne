@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @onready var target=$"../jose"
 
-var bullet_path = preload("res://bullet_1.tscn")
+var bullet_path = preload("res://scenes/weapons/bullet_1.gd.tscn")
 
-var speed = 400
+var speed = 400 
 var HP = 2
 var type = "enemy"
 
@@ -17,22 +17,22 @@ func take_damage(dmg):
 		queue_free()
 		
 	
-func shoot():
-	var mouse_pos = get_global_mouse_position()
-	
-	var bullet = bullet_path.instantiate()
-	var angle = get_angle_to(mouse_pos)
+#func shoot():
+	#var mouse_pos = get_global_mouse_position()
+	#
+	#var bullet = bullet_path.instantiate()
+	#var angle = get_angle_to(mouse_pos)
+#
+	#bullet.dir = angle
+	#bullet.pos = $Bullet_Pos.global_position
+	#bullet.rot = angle
+	#
+	#self.add_child(bullet)
 
-	bullet.dir = angle
-	bullet.pos = $Bullet_Pos.global_position
-	bullet.rot = angle
-	
-	self.add_child(bullet)
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			shoot()
+#func _input(event):
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			#shoot()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

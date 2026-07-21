@@ -1,10 +1,18 @@
 extends CharacterBody2D
 
-var bullet_path = preload("res://bullet_1.tscn")
+var bullet_path = preload("res://scenes/weapons/bullet_0.gd.tscn")
 
-const SPEED = 450.0
+const SPEED = 350.0
 var idle_dir:String
 var type = "player"
+var HP = 3
+
+@onready var category = "Player"
+
+var rng = RandomNumberGenerator.new()
+
+func _ready() -> void:
+	$AnimatedSprite2D.play("idle_up")
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -21,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		idle_dir = "idle_up"
 	elif direction.y == 1.0:
 		$AnimatedSprite2D.play("move_down")
+		
 		idle_dir = "idle_down"
 	elif direction.x > 0.7: #Takes care of right diagonals too
 		$AnimatedSprite2D.play("move_right")
@@ -35,6 +44,11 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+func take_damage(dmg):
+	self.HP -= dmg
+	if HP<= 0:
+		pass
+
 func _input(ev):
 	if ev is InputEventMouseButton: #Mouse clicks
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
@@ -42,9 +56,12 @@ func _input(ev):
 		if ev.button_index == 1 and ev.button_mask == 1: # button mask 1 is click down, 0 is up
 			var mouse_pos = get_global_mouse_position()
 			var bullet = bullet_path.instantiate() # Get bullet instance
-			bullet.dir = get_angle_to(mouse_pos)
-			bullet.pos = $Bullet_Pos.global_position
+			bullet.dir = (mouse_pos - $Bullet_Pos.global_position).normalized()
+			bullet.pos = global_position
 			bullet.rot = get_angle_to(mouse_pos)
-			self.add_child(bullet)
+			bullet.origin_category = category
+			$RevolverSound.pitch_scale = rng.randf_range(0.6, 1)
+			$RevolverSound.play()
+			get_parent().add_child(bullet)
 	
 	

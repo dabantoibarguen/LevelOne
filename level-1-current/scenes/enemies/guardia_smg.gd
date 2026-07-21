@@ -1,17 +1,11 @@
 extends CharacterBody2D
-
-var bullet_path = preload("res://scenes/weapons/bullet_0.gd.tscn")
-
-var vision_ray
+@onready var target=$"../jose"
 @onready var nav_agent = $NavigationAgent2D
+@onready var vision_ray = $VisionRay
 @onready var hearing_area = $HearingRange
+@onready var memory_timer = $DetectionTimer
 
-@onready var attk_speed :float = 0.5
 @onready var category = "Enemy"
-
-var target
-var direction
-var rng = RandomNumberGenerator.new()
 
 
 enum State {
@@ -34,12 +28,14 @@ var patrol_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AttackDelay.wait_time = attk_speed
+	pass # Replace with function body.
 
 func take_damage(dmg):
 	self.HP -= dmg
 	if HP<= 0:
 		queue_free()
+		
+		
 		
 # -------------------------
 # DETECTION SYSTEM (Hearing and Visual)
@@ -48,46 +44,13 @@ func take_damage(dmg):
 func _on_hearing_range_body_entered(body: Node2D) -> void:
 	if body.name == "jose":
 		heard = true
-		target = body
-		vision_ray = RayCast2D.new()
-		add_child(vision_ray)
-		$AttackDelay.wait_time = 0.5
-		$AttackDelay.start()
-		$AttackDelay.wait_time = 1.5
+		#print(suspicion)
 
-		
-	
 func _on_hearing_range_body_exited(body: Node2D) -> void:
 	if body.name == "jose":
-		remove_child(vision_ray)
 		heard = false
-		$AttackDelay.stop()
-
-
-func _on_attack_delay_timeout() -> void:
-	if vision_ray.get_collider() is CharacterBody2D && vision_ray.get_collider().name == "jose":
-		for i in 3:
-			var bullet = bullet_path.instantiate()
-			bullet.rot = get_angle_to(target.global_position)
-			bullet.dir = (target.global_position - global_position).normalized()
-			bullet.pos = global_position
-			bullet.origin_category = category
-			get_parent().add_child(bullet)
-					
-			$WeaponSound.pitch_scale = rng.randf_range(0.4, 1.1)
-			$WeaponSound.play()
-			
-			await get_tree().create_timer(0.2).timeout
-	else:
-		print(vision_ray.get_collider())
-
-
-	
-	
-	
-	
-
-	
+	#print(suspicion)
+		
 # -------------------------
 # SUSPICION SYSTEM
 # -------------------------
@@ -102,8 +65,14 @@ func update_suspicion(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if vision_ray != null:
-		vision_ray.target_position = (target.global_position - global_position)
+	#detect_player(delta) # Vision based
+	update_suspicion(delta) 
+	#update_state()
+	#run_state(delta)
+	#move_and_slide()
+	if heard:
+		suspicion += 15*delta # Hearing detection
+	
 	#var direction = (target.position-position).normalized()
 	#velocity = direction * speed
 

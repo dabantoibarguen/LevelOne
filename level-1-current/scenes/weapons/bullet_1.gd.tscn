@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bjfl3dt0ouo0v"]
 
-[ext_resource type="Script" uid="uid://dauf4hmcg25t4" path="res://bullet_1.gd" id="1_bmlrp"]
-[ext_resource type="Texture2D" uid="uid://bsr7l2yjguxa6" path="res://icon.svg" id="2_yp86r"]
+[ext_resource type="Script" uid="uid://dauf4hmcg25t4" path="res://scenes/weapons/bullet_1.gd" id="1_bmlrp"]
+[ext_resource type="Texture2D" uid="uid://2x4h1h2l02ak" path="res://assets/sprite_sheets/bullet_sprite.png" id="2_l2c12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4k7"]
-size = Vector2(140.8, 38.4)
+size = Vector2(133.88559, 39.038376)
 
 [node name="bullet1" type="Area2D" unique_id=1677372527]
 z_index = -1
@@ -12,15 +12,19 @@ scale = Vector2(-0.705672, -0.645214)
 input_pickable = false
 script = ExtResource("1_bmlrp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=383926]
-position = Vector2(-2.38419e-07, 5.96046e-08)
-scale = Vector2(0.15625, 0.046875)
-texture = ExtResource("2_yp86r")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526880741]
-position = Vector2(0, -5.96046e-08)
-scale = Vector2(0.15625, 0.15625)
+position = Vector2(0.5401889, -0.049873203)
+scale = Vector2(0.15625001, 0.15625)
 shape = SubResource("RectangleShape2D_7f4k7")
 
 [node name="VisibleNotif" type="VisibleOnScreenNotifier2D" parent="." unique_id=1005887945]
 scale = Vector2(1.13485, 0.322564)
+rect = Rect2(-10, -9.616607, 9.870207, 19.616608)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2062368293]
+modulate = Color(0.3019608, 0.3019608, 0.3019608, 1)
+self_modulate = Color(0.38505104, 0.39618057, 0.8871515, 1)
+position = Vector2(0.20497668, 0.0001735195)
+rotation = 1.5709033
+scale = Vector2(0.034430318, -0.044712745)
+texture = ExtResource("2_l2c12")
