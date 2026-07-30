@@ -30,7 +30,11 @@
 - Melee enemy (movement while/before attacking required)
 - Implement basic navigation and routes for different enemy types
 
+  
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ## 21-07-2021
 
 ### Summary
