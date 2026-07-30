@@ -3,7 +3,7 @@
 ## 29-07-2021
 
 ### Summary
-- Reorganized files for better organization, created base guard script to inherit
+- Reorganized files and created base guard scene/script
 - Implemented enemy subtypes (Shotgun, SMG)
 - Shotgun spread working as intended
 - Added behavior for Jose going out of sight while being shot at
