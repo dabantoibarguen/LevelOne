@@ -1,5 +1,36 @@
 # Update Log
 
+## 29-07-2021
+
+### Summary
+- Reorganized files for better organization, created base guard script to inherit
+- Implemented enemy subtypes (Shotgun, SMG)
+- Shotgun spread working as intended
+- Added behavior for Jose going out of sight while being shot at
+- Started pathfinding and navigation
+
+### Details
+- Base guard scene and script
+    - Shared functionality: take damage, ready, physics process, hearing/seeing signals and timers
+    - Default variables for setup, HP and speed are guard dependent
+    - Inherited as a class using "extend"
+
+- Shotgun Guard
+    - 3 bullets, 10 degree spread approximately
+
+- SMG
+    - 25 bullets, faster rate of fire, longer pauses between bursts
+
+- Bullet update
+    - Stops updating in real time if 2d ray cast does not collide with Jose.
+    - Moves slowly towards current position when vision is blocked
+
+
+### Plans for next update
+- Melee enemy (movement while/before attacking required)
+- Implement basic navigation and routes for different enemy types
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## 21-07-2021
 
 ### Summary
