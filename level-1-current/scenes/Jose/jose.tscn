@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d1vq586f7g6p2"]
 
-[ext_resource type="Script" uid="uid://7mrwbtl3v3nl" path="res://scenes/jose.gd" id="1_uyjq6"]
+[ext_resource type="Script" uid="uid://7mrwbtl3v3nl" path="res://scenes/Jose/jose.gd" id="1_uyjq6"]
 [ext_resource type="Texture2D" uid="uid://ba23w4bu4dy85" path="res://assets/sprite_sheets/spritesheet jose 64x64 actual (1).png" id="2_uyjq6"]
 [ext_resource type="AudioStream" uid="uid://iy02t36ne137" path="res://assets/SFX/Jose revolver B.mp3" id="3_givbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pkag"]
-size = Vector2(34, 53.7793)
+size = Vector2(31, 48.017303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_givbp"]
 atlas = ExtResource("2_uyjq6")
@@ -261,13 +261,13 @@ scale = Vector2(1, 0.914704)
 script = ExtResource("1_uyjq6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290217717]
-position = Vector2(0, 5.11034)
+position = Vector2(0.5, 2.2293434)
 shape = SubResource("RectangleShape2D_3pkag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=365216179]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_m3rwf")
-animation = &"shoot_left"
+animation = &"idle_up"
 
 [node name="Bullet_Pos" type="Node2D" parent="." unique_id=1312031593]
 position = Vector2(3.8147e-06, 0)

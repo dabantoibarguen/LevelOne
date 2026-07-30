@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blakaeo5g46ht"]
 
-[ext_resource type="Script" uid="uid://c18ry1tngh4sr" path="res://scenes/weapons/bullet_0.gd" id="1_bljb1"]
+[ext_resource type="Script" uid="uid://c18ry1tngh4sr" path="res://scenes/Weapons/bullet_0.gd" id="1_bljb1"]
 [ext_resource type="Texture2D" uid="uid://2x4h1h2l02ak" path="res://assets/sprite_sheets/bullet_sprite.png" id="2_03qog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4k7"]

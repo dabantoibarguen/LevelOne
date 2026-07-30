@@ -7,7 +7,7 @@ var dmg = 1
 
 var origin_category:String
 
-@onready var speed = 800
+@onready var speed = 600
 
 @onready var offscreen_timer := 0.0
 @onready var offscreen = false
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	position += dir * speed * delta
 	if offscreen:
 		offscreen_timer += delta
-		if offscreen_timer >= 0.8:
+		if offscreen_timer >= 0.5:
 			queue_free()
 	else:
 		offscreen_timer = 0
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D):
 	if body is CharacterBody2D:
 		if body.category != origin_category:
-			var parent = get_parent()
+			#var parent = get_parent()
 			body.take_damage(dmg)
 			queue_free()
 	else:

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dsa7dfje4m2ge"]
+
+[ext_resource type="PackedScene" uid="uid://babqe0uybegqx" path="res://scenes/Enemies/Guardias/guardia_base.tscn" id="1_sr7ef"]
+[ext_resource type="Script" uid="uid://clm21fo4huhwl" path="res://scenes/Enemies/Guardias/g_cuerpo.gd" id="2_de48h"]
+
+[node name="GuardiaCuerpo" unique_id=973501468 instance=ExtResource("1_sr7ef")]
+script = ExtResource("2_de48h")
+
+[node name="NavigationAgent2D" parent="." index="2" unique_id=1880838204]
+target_desired_distance = 100.0
+debug_enabled = true
+debug_path_custom_color = Color(0.5698934, 0, 0.0857453, 1)
+debug_path_custom_line_width = 2.0
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="body_entered" from="HearingRange" to="." method="_on_hearing_range_body_entered"]
+[connection signal="body_exited" from="HearingRange" to="." method="_on_hearing_range_body_exited"]
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

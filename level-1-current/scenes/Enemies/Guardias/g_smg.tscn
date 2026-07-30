@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://s3xc8gcrly00"]
+
+[ext_resource type="PackedScene" uid="uid://babqe0uybegqx" path="res://scenes/Enemies/Guardias/guardia_base.tscn" id="1_hk00l"]
+[ext_resource type="Script" uid="uid://0yu457pllxdx" path="res://scenes/Enemies/Guardias/g_smg.gd" id="2_0jvtl"]
+
+[node name="GuardiaSMG" unique_id=973501468 instance=ExtResource("1_hk00l")]
+script = ExtResource("2_0jvtl")
+
+[connection signal="body_entered" from="HearingRange" to="." method="_on_hearing_range_body_entered"]
+[connection signal="body_exited" from="HearingRange" to="." method="_on_hearing_range_body_exited"]
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

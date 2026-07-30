@@ -1,10 +1,7 @@
 [gd_scene format=4 uid="uid://dbekcikq0n3af"]
 
 [ext_resource type="Texture2D" uid="uid://dhhoog6oraph2" path="res://assets/maps/Map Making Room 1 empty.png" id="1_3s172"]
-[ext_resource type="PackedScene" uid="uid://d1vq586f7g6p2" path="res://scenes/jose.tscn" id="2_yye74"]
-[ext_resource type="PackedScene" uid="uid://oelfxcum1fsn" path="res://scenes/enemies/guardia_melee.tscn" id="3_v740s"]
-[ext_resource type="PackedScene" uid="uid://dcre0y1fslwqo" path="res://scenes/enemies/guardia_pistola.tscn" id="4_048ga"]
-[ext_resource type="PackedScene" uid="uid://nbu026lt7153" path="res://scenes/enemies/guardia_smg.tscn" id="5_3s172"]
+[ext_resource type="PackedScene" uid="uid://d1vq586f7g6p2" path="res://scenes/Jose/jose.tscn" id="2_yye74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_3s172")
@@ -74,30 +71,3 @@ tile_set = SubResource("TileSet_rus8k")
 zoom = Vector2(1.8, 1.8)
 
 [node name="Node" type="Node" parent="." unique_id=1737065587]
-
-[node name="g_pistola" parent="." unique_id=1773188719 instance=ExtResource("4_048ga")]
-position = Vector2(1021, -99)
-
-[node name="g_pistola2" parent="." unique_id=172517284 instance=ExtResource("4_048ga")]
-position = Vector2(1021, 99)
-
-[node name="g_pistola3" parent="." unique_id=1419671683 instance=ExtResource("4_048ga")]
-position = Vector2(1390, -8)
-
-[node name="g_melee" parent="." unique_id=361019504 instance=ExtResource("3_v740s")]
-position = Vector2(971, -254)
-
-[node name="g_melee2" parent="." unique_id=393976956 instance=ExtResource("3_v740s")]
-position = Vector2(968, 246)
-
-[node name="g_melee3" parent="." unique_id=2120919756 instance=ExtResource("3_v740s")]
-position = Vector2(455, 244)
-
-[node name="g_melee4" parent="." unique_id=620635020 instance=ExtResource("3_v740s")]
-position = Vector2(457, -250)
-
-[node name="g_melee5" parent="." unique_id=1771593191 instance=ExtResource("3_v740s")]
-position = Vector2(1241, -3)
-
-[node name="g_pistola4" parent="." unique_id=1698224930 instance=ExtResource("5_3s172")]
-position = Vector2(1312, 1031)

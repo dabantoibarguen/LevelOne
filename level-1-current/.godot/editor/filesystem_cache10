@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1784617340
+::res://::1785394362
 icon.svg::CompressedTexture2D/CompressedTexture2D::3686878334121690267::1774112939::1774112939::1::::<><><>0<>0<>db4e041603d51d895413db1b141db165<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1784598344
 ::res://assets/maps/::1774112939
@@ -12,25 +12,29 @@ bullet_sprite.png::CompressedTexture2D::1944354137581015566::1777220256::1777220
 imageedit_60_4292215627.png::CompressedTexture2D/CompressedTexture2D::2532004401914486337::1774113042::1774114298::1::::<><><>0<>0<>9fc97695a922383f5fb4f294521d6265<>res://.godot/imported/imageedit_60_4292215627.png-3072ada06918d466f0905e3053fe6cf1.ctex::
 sprite1 incompleto.png::CompressedTexture2D/CompressedTexture2D::786931835102557161::1774112939::1774112939::1::::<><><>0<>0<>085241666e3c6fbfd92c84f5d28b5a74<>res://.godot/imported/sprite1 incompleto.png-6cf5d764d15df82b72d34e95e249595d.ctex::
 spritesheet jose 64x64 actual (1).png::CompressedTexture2D::2443899771985651336::1777220066::1777220067::1::::<><><>0<>0<>5aeb64d82346d3f000a707f54c96d4ee<>res://.godot/imported/spritesheet jose 64x64 actual (1).png-d3dfb51a3d51c6c01ec8d0bf6c5c0ae2.ctex::
-::res://scenes/::1784617063
+::res://scenes/::1785365204
+::res://scenes/Enemies/::1785367224
+::res://scenes/Enemies/Especiales/::1785364916
+::res://scenes/Enemies/Guardias/::1785394352
+guardia_base.gd::GDScript::64649482429475026::1785394297::0::1::::Guardia_Base<>CharacterBody2D<><>0<>0<><>::
+guardia_base.tscn::PackedScene::2389465021578836991::1785394352::0::1::::<><><>0<>0<><>::uid://bccr0in61bg4h::::res://assets/sprite_sheets/imageedit_60_4292215627.png<>uid://6k1djailos5::::res://scenes/Enemies/Guardias/guardia_base.gd<>uid://u8t8h3dkwx4q::::res://assets/SFX/Gun Shot.mp3
+g_cuerpo.gd::GDScript::5571377255471286595::1785394334::0::1::::<>Guardia_Base<><>0<>0<><>::
+g_cuerpo.tscn::PackedScene::8424609814455116588::1785394275::0::1::::<><><>0<>0<><>::uid://babqe0uybegqx::::res://scenes/Enemies/Guardias/guardia_base.tscn<>uid://clm21fo4huhwl::::res://scenes/Enemies/Guardias/g_cuerpo.gd
+g_pistola.gd::GDScript::154410732603382561::1785390921::0::1::::<>Guardia_Base<><>0<>0<><>::
+g_pistola.tscn::PackedScene::1934638825200420523::1785390143::0::1::::<><><>0<>0<><>::uid://babqe0uybegqx::::res://scenes/Enemies/Guardias/guardia_base.tscn<>uid://cg2efjgwql50::::res://scenes/Enemies/Guardias/g_pistola.gd
+g_shotgun.gd::GDScript::8505975273208863350::1785389675::0::1::::<>Guardia_Base<><>0<>0<><>::
+g_shotgun.tscn::PackedScene::1556111432340721679::1785386386::0::1::::<><><>0<>0<><>::uid://babqe0uybegqx::::res://scenes/Enemies/Guardias/guardia_base.tscn<>uid://dtgmf1sednqxq::::res://scenes/Enemies/Guardias/g_shotgun.gd
+g_smg.gd::GDScript::1805533910757751233::1785392338::0::1::::<>Guardia_Base<><>0<>0<><>::
+g_smg.tscn::PackedScene::1322603567673125875::1785389532::0::1::::<><><>0<>0<><>::uid://babqe0uybegqx::::res://scenes/Enemies/Guardias/guardia_base.tscn<>uid://0yu457pllxdx::::res://scenes/Enemies/Guardias/g_smg.gd
+::res://scenes/Enemies/Jefes/::1785364911
+::res://scenes/Jose/::1785367186
 jose.gd::GDScript::2271887088221390525::1784617063::0::1::::<>CharacterBody2D<><>0<>0<><>::
-jose.tscn::PackedScene::9028550745634514469::1784616556::0::1::::<><><>0<>0<><>::uid://7mrwbtl3v3nl::::res://scenes/jose.gd<>uid://ba23w4bu4dy85::::res://assets/sprite_sheets/spritesheet jose 64x64 actual (1).png<>uid://iy02t36ne137::::res://assets/SFX/Jose revolver B.mp3
-::res://scenes/enemies/::1784617321
-guardia_melee.gd::GDScript::1796905628387865780::1784236639::0::1::::<>CharacterBody2D<><>0<>0<><>::
-guardia_melee.tscn::PackedScene::991579349891083029::1784617292::0::1::::<><><>0<>0<><>::uid://0uo1j1ux22d1::::res://scenes/enemies/guardia_smg.gd
-guardia_pistola.gd::GDScript::64649482429475026::1784617150::0::1::::<>CharacterBody2D<><>0<>0<><>::
-guardia_pistola.tscn::PackedScene::7335022973970080158::1784617321::0::1::::<><><>0<>0<><>::uid://6k1djailos5::::res://scenes/enemies/guardia_pistola.gd<>uid://bccr0in61bg4h::::res://assets/sprite_sheets/imageedit_60_4292215627.png<>uid://u8t8h3dkwx4q::::res://assets/SFX/Gun Shot.mp3
-guardia_shotgun.gd::GDScript::9051046996552141851::1784237080::0::1::::<>CharacterBody2D<><>0<>0<><>::
-guardia_shotgun.tscn::PackedScene::8424521256558356930::1784241576::0::1::::<><><>0<>0<><>::uid://0uo1j1ux22d1::::res://scenes/enemies/guardia_smg.gd<>uid://bccr0in61bg4h::::res://assets/sprite_sheets/imageedit_60_4292215627.png
-guardia_smg.gd::GDScript::1796905628387865780::1784615827::0::1::::<>CharacterBody2D<><>0<>0<><>::
-guardia_smg.tscn::PackedScene::915779796297292112::1784615805::0::1::::<><><>0<>0<><>::uid://0uo1j1ux22d1::::res://scenes/enemies/guardia_smg.gd<>uid://bccr0in61bg4h::::res://assets/sprite_sheets/imageedit_60_4292215627.png
-::res://scenes/Levels/::1784590543
-level_1.tscn::PackedScene::966352193052231244::1784590543::0::1::::<><><>0<>0<><>::uid://dhhoog6oraph2::::res://assets/maps/Map Making Room 1 empty.png<>uid://d1vq586f7g6p2::::res://scenes/jose.tscn<>uid://oelfxcum1fsn::::res://scenes/enemies/guardia_melee.tscn<>uid://dsa5vtg4halpi::::res://scenes/enemies/guardia_shotgun.tscn<>uid://dcre0y1fslwqo::::res://scenes/enemies/guardia_pistola.tscn<>uid://pjdxo6evf83m::::res://scenes/Levels/salida.gd
+jose.tscn::PackedScene::9028550745634514469::1785367186::0::1::::<><><>0<>0<><>::uid://7mrwbtl3v3nl::::res://scenes/Jose/jose.gd<>uid://ba23w4bu4dy85::::res://assets/sprite_sheets/spritesheet jose 64x64 actual (1).png<>uid://iy02t36ne137::::res://assets/SFX/Jose revolver B.mp3
+::res://scenes/Levels/::1785394108
+level_1.tscn::PackedScene::966352193052231244::1785394108::0::1::::<><><>0<>0<><>::uid://dhhoog6oraph2::::res://assets/maps/Map Making Room 1 empty.png<>uid://d1vq586f7g6p2::::res://scenes/Jose/jose.tscn<>uid://dsa7dfje4m2ge::::res://scenes/Enemies/Guardias/g_cuerpo.tscn
 level_1_out.tscn::PackedScene::935806465725877541::1774112939::0::1::::<><><>0<>0<><>::uid://dhhoog6oraph2::::res://assets/maps/Map Making Room 1 empty.png
-level_2.tscn::PackedScene::7238319583644812909::1784243043::0::1::::<><><>0<>0<><>::uid://dhhoog6oraph2::::res://assets/maps/Map Making Room 1 empty.png<>uid://d1vq586f7g6p2::::res://scenes/jose.tscn<>uid://oelfxcum1fsn::::res://scenes/enemies/guardia_melee.tscn<>uid://dcre0y1fslwqo::::res://scenes/enemies/guardia_pistola.tscn<>uid://nbu026lt7153::::res://scenes/enemies/guardia_smg.tscn
+level_2.tscn::PackedScene::7238319583644812909::1785366882::0::1::::<><><>0<>0<><>::uid://dhhoog6oraph2::::res://assets/maps/Map Making Room 1 empty.png<>uid://d1vq586f7g6p2::::res://scenes/Jose/jose.tscn
 salida.gd::GDScript::1071636062021015040::1784589537::0::1::::<>Area2D<><>0<>0<><>::
-::res://scenes/weapons/::1784617291
-bullet_0.gd::GDScript::6666952211347139553::1784617075::0::1::::<>Area2D<><>0<>0<><>::
-bullet_0.gd.tscn::PackedScene::3159105366732040965::1784617291::0::1::::<><><>0<>0<><>::uid://c18ry1tngh4sr::::res://scenes/weapons/bullet_0.gd<>uid://2x4h1h2l02ak::::res://assets/sprite_sheets/bullet_sprite.png
-bullet_1.gd::GDScript::7200905365448662419::1784594122::0::1::::<>Area2D<><>0<>0<><>::
-bullet_1.gd.tscn::PackedScene::3029160242432191359::1784615309::0::1::::<><><>0<>0<><>::uid://dauf4hmcg25t4::::res://scenes/weapons/bullet_1.gd<>uid://2x4h1h2l02ak::::res://assets/sprite_sheets/bullet_sprite.png
+::res://scenes/Weapons/::1785390435
+bullet_0.gd::GDScript::6666952211347139553::1785390418::0::1::::<>Area2D<><>0<>0<><>::
+bullet_0.gd.tscn::PackedScene::3159105366732040965::1785390435::0::1::::<><><>0<>0<><>::uid://c18ry1tngh4sr::::res://scenes/Weapons/bullet_0.gd<>uid://2x4h1h2l02ak::::res://assets/sprite_sheets/bullet_sprite.png

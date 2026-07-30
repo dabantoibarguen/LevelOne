@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://2tfho6uarypf"]
+
+[ext_resource type="PackedScene" uid="uid://babqe0uybegqx" path="res://scenes/Enemies/Guardias/guardia_base.tscn" id="1_picev"]
+[ext_resource type="Script" uid="uid://cg2efjgwql50" path="res://scenes/Enemies/Guardias/g_pistola.gd" id="2_6wlxw"]
+
+[node name="GuardiaPistola" unique_id=973501468 instance=ExtResource("1_picev")]
+script = ExtResource("2_6wlxw")
+
+[connection signal="body_entered" from="HearingRange" to="." method="_on_hearing_range_body_entered"]
+[connection signal="body_exited" from="HearingRange" to="." method="_on_hearing_range_body_exited"]
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
