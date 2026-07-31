@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://72v33c6rtma7"]
+
+[ext_resource type="Script" uid="uid://cvhg3stl16ior" path="res://scenes/Weapons/swing_0.gd" id="1_n7pg1"]
+[ext_resource type="Texture2D" uid="uid://bw18gcw8x6xqv" path="res://assets/sprite_sheets/Swing_effect.png" id="2_n7pg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4k7"]
+size = Vector2(45.34684, 99.19189)
+
+[node name="swing0" type="Area2D" unique_id=1677372527]
+top_level = true
+z_index = -1
+scale = Vector2(-0.705672, -0.645214)
+collision_priority = 2.0
+input_pickable = false
+script = ExtResource("1_n7pg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526880741]
+position = Vector2(-0.70855343, -1.847593e-07)
+scale = Vector2(0.15625001, 0.15625)
+shape = SubResource("RectangleShape2D_7f4k7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1999146843]
+position = Vector2(-0.64774096, -0.023372382)
+rotation = 3.1415927
+scale = Vector2(0.5451075, 1.149589)
+texture = ExtResource("2_n7pg1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var bullet_path = preload("res://scenes/weapons/bullet_0.gd.tscn")
+var bullet_path = preload("res://scenes/weapons/bullet_0.tscn")
 
 const SPEED = 350.0
 var idle_dir:String

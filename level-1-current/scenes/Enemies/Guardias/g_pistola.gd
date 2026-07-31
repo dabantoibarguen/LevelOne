@@ -1,15 +1,12 @@
 extends Guardia_Base
 
 func _ready() -> void:
+	attk_range = 150
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:
 	# Detecting Jose by hearing
 	super(body)
-	if body.name == "jose":
-		attackDelay.wait_time = 0.5
-		attackDelay.start()
-		attackDelay.wait_time = 1.5
 		
 func _on_hearing_range_body_exited(body: Node2D) -> void:
 	super(body)

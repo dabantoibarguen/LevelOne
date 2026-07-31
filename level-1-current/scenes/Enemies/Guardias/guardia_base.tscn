@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://u8t8h3dkwx4q" path="res://assets/SFX/Gun Shot.mp3" id="2_lvo7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6xck"]
-size = Vector2(26.999992, 41)
+size = Vector2(26.999992, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gcu7"]
 animations = [{
@@ -26,18 +26,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_o44ki"]
 
 [node name="GuardiaCuerpo" type="CharacterBody2D" unique_id=973501468]
-collision_priority = 1.5
 safe_margin = 1.0
 script = ExtResource("1_lvo7g")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=2143022]
-position = Vector2(0, 2.5)
+position = Vector2(0, 1)
 scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_g6xck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126775852]
-position = Vector2(2.000003, 3.2187512)
-scale = Vector2(0.1215933, 0.04760882)
+position = Vector2(2.000003, 0.9999988)
+scale = Vector2(0.1215933, 0.038946163)
 sprite_frames = SubResource("SpriteFrames_3gcu7")
 animation = &"idle"
 
