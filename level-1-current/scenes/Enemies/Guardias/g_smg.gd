@@ -3,6 +3,7 @@ extends Guardia_Base
 var bullet_count = 25
 
 func _ready() -> void:
+	attk_range = 100
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:

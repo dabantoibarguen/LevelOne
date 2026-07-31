@@ -1,15 +1,16 @@
 [gd_scene format=4 uid="uid://n1dxdop1oey3"]
 
 [ext_resource type="Texture2D" uid="uid://dhhoog6oraph2" path="res://assets/maps/Map Making Room 1 empty.png" id="1_3ydyl"]
-[ext_resource type="PackedScene" uid="uid://dsa7dfje4m2ge" path="res://scenes/Enemies/Guardias/g_cuerpo.tscn" id="3_3ydyl"]
 [ext_resource type="PackedScene" uid="uid://d1vq586f7g6p2" path="res://scenes/Jose/jose.tscn" id="3_vtxvj"]
+[ext_resource type="PackedScene" uid="uid://s3xc8gcrly00" path="res://scenes/Enemies/Guardias/g_smg.tscn" id="4_vtxvj"]
+[ext_resource type="PackedScene" uid="uid://wf16sx0r8wq6" path="res://scenes/Enemies/Guardias/g_shotgun.tscn" id="5_o21ul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_3ydyl")
 texture_region_size = Vector2i(50, 50)
 0:0/next_alternative_id = 3
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 3.725525, -25, 3.725525, -25, 3.1046066)
 0:0/1 = 1
 0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 0:0/2 = 2
@@ -18,18 +19,18 @@ texture_region_size = Vector2i(50, 50)
 1:1/0 = 0
 1:1/0/z_index = -1
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 3.725525, -25, 3.725525, -25, 3.1046066)
 3:2/0 = 0
 3:2/0/z_index = -1
 4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 3.725525, -25, 3.725525, -25, 3.1046066)
 5:2/0 = 0
-5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 1.12895, -25, 1.12895)
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 3.725525, -25, 3.725525, -25, 3.1046066)
 5:1/0 = 0
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 5:0/0 = 0
 5:0/0/z_index = 1
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, 8.46711, 25, 8.46711, 25, 25, -25, 25)
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -6.0111847, 25, -5.8987503, 25, 25, -25, 25)
 4:0/next_alternative_id = 2
 4:0/0 = 0
 4:0/0/z_index = 1
@@ -62,9 +63,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-346, -859, -344, -601, 72, -599, 79, -862)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3ydyl"]
-vertices = PackedVector2Array(652.9219, -1557.9297, -230.8125, -1552.0625, -230.17188, -1588.0078, 622.9297, -1589.0078, 651.0703, -1790.9766, 624.0703, -1756.0391, -195.92969, -1789.9922, -234.0625, -1753.0313, -235.92969, -2051.9688, -197.07031, -1957.9922, 656, -2050.0234, 656, -1958.9766)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(9, 8, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-240, -1598, -241, -1542, 663, -1548, 661, -1801, -186, -1800, -187, -1948, 666, -1949, 666, -2060, -246, -2062, -244, -1743, 614, -1746, 613, -1599)])
+vertices = PackedVector2Array(653.3203, -2032.0234, 655.6719, -1958.9766, -196.71875, -1957.9922, -234.96094, -2033.9688, -234.03125, -1753.0078, -201.28906, -1796.9922, 621.21094, -1754.0078, 653.96094, -1797.9766, 653.03125, -1557.9297, 617.78906, -1591.0078, -231, -1552.0625, -231, -1590.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(9, 8, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-241, -1600, -241, -1542, 663, -1548, 664, -1808, -191, -1807, -187, -1948, 666, -1949, 663, -2042, -245, -2044, -244, -1743, 611, -1744, 608, -1601)])
 
 [node name="Level 1" type="Node2D" unique_id=693049283]
 
@@ -86,32 +87,21 @@ navigation_polygon = SubResource("NavigationPolygon_ac15f")
 
 [node name="Cuarto 2" type="Node" parent="." unique_id=1341370733]
 
-[node name="GuardiaCuerpo" parent="Cuarto 2" unique_id=973501468 instance=ExtResource("3_3ydyl")]
-position = Vector2(629, -1777)
-collision_priority = 1.0
-safe_margin = 0.08
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Cuarto 2" unique_id=890319074]
 navigation_polygon = SubResource("NavigationPolygon_3ydyl")
 
 [node name="Cuarto 3" type="Node" parent="." unique_id=1153209734]
 
 [node name="jose" parent="." unique_id=797937788 instance=ExtResource("3_vtxvj")]
-position = Vector2(-100, -257)
+position = Vector2(-116, -1331)
 
 [node name="Camera2D" type="Camera2D" parent="jose" unique_id=1025139998]
 position = Vector2(-8, 1.0932617)
 scale = Vector2(1, 1.0932498)
 zoom = Vector2(0.7, 0.7)
 
-[node name="GuardiaCuerpo" parent="." unique_id=1311577009 instance=ExtResource("3_3ydyl")]
-position = Vector2(-294, -814)
-safe_margin = 0.08
+[node name="GuardiaShotgun" parent="." unique_id=973501468 instance=ExtResource("5_o21ul")]
+position = Vector2(460, -1574)
 
-[node name="GuardiaCuerpo2" parent="." unique_id=1686473022 instance=ExtResource("3_3ydyl")]
-position = Vector2(-214, -787)
-safe_margin = 0.08
-
-[node name="GuardiaCuerpo3" parent="." unique_id=482044416 instance=ExtResource("3_3ydyl")]
-position = Vector2(-289, -739)
-safe_margin = 0.08
+[node name="GuardiaSMG" parent="." unique_id=1358590163 instance=ExtResource("4_vtxvj")]
+position = Vector2(-39, -1790)

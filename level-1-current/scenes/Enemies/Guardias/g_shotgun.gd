@@ -4,6 +4,7 @@ var bullet_count = 3
 var bullet_arc = 30
 
 func _ready() -> void:
+	attk_range = 70
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:

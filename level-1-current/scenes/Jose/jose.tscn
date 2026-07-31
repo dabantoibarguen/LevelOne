@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://iy02t36ne137" path="res://assets/SFX/Jose revolver B.mp3" id="3_givbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pkag"]
-size = Vector2(31, 48.017303)
+size = Vector2(29, 39.356995)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_givbp"]
 atlas = ExtResource("2_uyjq6")
@@ -258,15 +258,15 @@ animations = [{
 
 [node name="jose" type="CharacterBody2D" unique_id=797937788]
 scale = Vector2(1, 0.914704)
-collision_priority = 5.0
 script = ExtResource("1_ie0vw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290217717]
-position = Vector2(0.5, 2.2293434)
+position = Vector2(1.5, -1.0932494)
 shape = SubResource("RectangleShape2D_3pkag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=365216179]
-position = Vector2(1, 1)
+position = Vector2(1, -1.6398737)
+scale = Vector2(1, 0.70036316)
 sprite_frames = SubResource("SpriteFrames_m3rwf")
 animation = &"move_down"
 
