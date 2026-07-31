@@ -10,6 +10,7 @@ size = Vector2(133.88559, 39.038376)
 top_level = true
 z_index = -1
 scale = Vector2(-0.705672, -0.645214)
+collision_priority = 2.0
 input_pickable = false
 script = ExtResource("1_bljb1")
 
