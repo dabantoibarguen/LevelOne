@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://u8t8h3dkwx4q" path="res://assets/SFX/Gun Shot.mp3" id="2_lvo7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6xck"]
-size = Vector2(34, 53.7793)
+size = Vector2(26.999992, 41)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gcu7"]
 animations = [{
@@ -25,17 +25,19 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o44ki"]
 
-[node name="GuardiaBase" type="CharacterBody2D" unique_id=973501468]
+[node name="GuardiaCuerpo" type="CharacterBody2D" unique_id=973501468]
+collision_priority = 1.5
+safe_margin = 1.0
 script = ExtResource("1_lvo7g")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=2143022]
-position = Vector2(-4.7683716e-07, 5.11034)
+position = Vector2(0, 2.5)
 scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_g6xck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126775852]
-position = Vector2(2, 6)
-scale = Vector2(0.1215933, 0.06443299)
+position = Vector2(2.000003, 3.2187512)
+scale = Vector2(0.1215933, 0.04760882)
 sprite_frames = SubResource("SpriteFrames_3gcu7")
 animation = &"idle"
 
@@ -53,7 +55,11 @@ shape = SubResource("CircleShape2D_o44ki")
 
 [node name="AttackDelay" type="Timer" parent="." unique_id=430272637]
 
+[node name="NavReset" type="Timer" parent="." unique_id=1574679325]
+
 [node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=319471375]
 stream = ExtResource("2_lvo7g")
 volume_db = -17.558
 pitch_scale = 0.01
+
+[connection signal="timeout" from="NavReset" to="." method="_on_nav_reset_timeout"]

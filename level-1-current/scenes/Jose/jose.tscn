@@ -258,6 +258,7 @@ animations = [{
 
 [node name="jose" type="CharacterBody2D" unique_id=797937788]
 scale = Vector2(1, 0.914704)
+collision_priority = 5.0
 script = ExtResource("1_ie0vw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=290217717]

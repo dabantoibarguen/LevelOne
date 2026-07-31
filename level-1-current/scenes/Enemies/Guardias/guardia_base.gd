@@ -7,19 +7,25 @@ extends CharacterBody2D
 # For all guards
 var bullet_path = preload("res://scenes/Weapons/bullet_0.gd.tscn")
 @onready var nav = $NavigationAgent2D
+@onready var attackDelay = $AttackDelay
+@onready var navReset = $NavReset
 
 var navigating = false
+var attacking = false
+
 var vision_ray
 var target
 var target_position
-var target_vertical = 0
-var direction
+#var target_vertical = 0
+var startingLocation
+
 var rng = RandomNumberGenerator.new()
 var category = "Enemy"
 
 # Guard specific
 var speed = 50
 var HP = 2
+var sway
 
 @export var attk_speed :float = 1.5
 
@@ -28,7 +34,9 @@ var HP = 2
 # -------------------------
 		
 func _ready() -> void:
-	$AttackDelay.wait_time = attk_speed
+	attackDelay.wait_time = attk_speed
+	navReset.wait_time = 2
+	startingLocation = global_position
 		
 func take_damage(dmg):
 	self.HP -= dmg
@@ -50,7 +58,7 @@ func _on_hearing_range_body_exited(body: Node2D) -> void:
 	if body.name == "jose":
 		navigating = false
 		remove_child(vision_ray)
-		$AttackDelay.stop()
+		attackDelay.stop()
 
 # Remember to connect the timeout signal for each inherited scene
 		
@@ -62,3 +70,7 @@ func _physics_process(delta: float) -> void:
 			pass
 		else:
 			nav.target_position = target.global_position
+
+
+func _on_nav_reset_timeout() -> void:
+	pass # Replace with function body.
