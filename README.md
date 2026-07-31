@@ -1,5 +1,37 @@
 # Update Log
 
+## 30-07-2021
+
+### Summary
+- Navigation agent and navigation regions refined
+- Base guard functions reorganized
+- Navigation made universal for all guards. Attack range depends on subtype
+
+### Details
+- Base guard scene and script
+    - Navigation at slow speed when Jose is heard but not seen
+    - Navigation at faster speed when Jose is seen and heard
+    - Attacks started when Jose is seen at x1.5 of attack range
+    - Return to original location after guard cannot reach the target for 2 seconds
+
+- Åttack ranges
+    - Pistol w/ 150 range
+    - Shotgun w/ 70 range
+    - SMG w/ 100 range
+    - Melee w/ 50 range
+
+- Swing update
+    - Created but not functional yet
+
+
+### Plans for next update
+- Melee enemy (attack mechanics and swing file)
+- Add all enemies to the both maps
+
+  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ## 29-07-2021
 
 ### Summary
