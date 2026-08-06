@@ -4,7 +4,9 @@ var bullet_count = 3
 var bullet_arc = 30
 
 func _ready() -> void:
-	attk_range = 70
+	speed = 40
+	attk_range = 100
+	hear_range = 24
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:
@@ -33,3 +35,8 @@ func _on_attack_delay_timeout() -> void:
 			$WeaponSound.pitch_scale = rng.randf_range(0.8, 1.8)
 			$WeaponSound.play()
 		print()
+
+	
+func _physics_process(delta: float) -> void:
+	super(delta)
+	track(delta)

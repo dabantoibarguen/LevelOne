@@ -6,6 +6,8 @@
 [node name="GuardiaShotgun" unique_id=973501468 instance=ExtResource("1_dk0sk")]
 script = ExtResource("2_xedje")
 
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="body_entered" from="HearingRange" to="." method="_on_hearing_range_body_entered"]
 [connection signal="body_exited" from="HearingRange" to="." method="_on_hearing_range_body_exited"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

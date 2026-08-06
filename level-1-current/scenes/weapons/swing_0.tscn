@@ -6,6 +6,28 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4k7"]
 size = Vector2(45.34684, 99.19189)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5mgv"]
+atlas = ExtResource("2_n7pg1")
+region = Rect2(0, 5, 14, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24on1"]
+atlas = ExtResource("2_n7pg1")
+region = Rect2(0, 0, 14, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcvkv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5mgv")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_24on1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="swing0" type="Area2D" unique_id=1677372527]
 top_level = true
 z_index = -1
@@ -19,10 +41,12 @@ position = Vector2(-0.70855343, -1.847593e-07)
 scale = Vector2(0.15625001, 0.15625)
 shape = SubResource("RectangleShape2D_7f4k7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1999146843]
-position = Vector2(-0.64774096, -0.023372382)
-rotation = 3.1415927
-scale = Vector2(0.5451075, 1.149589)
-texture = ExtResource("2_n7pg1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742407244]
+position = Vector2(-0.6257898, 0.13725619)
+scale = Vector2(0.50588214, 1.0165219)
+sprite_frames = SubResource("SpriteFrames_mcvkv")
+frame = 1
+frame_progress = 0.96446174
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

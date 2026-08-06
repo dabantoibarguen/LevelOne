@@ -11,9 +11,11 @@ position = Vector2(0.49999964, 2.5)
 
 [node name="NavigationAgent2D" parent="." index="2" unique_id=1880838204]
 target_desired_distance = 50.0
-debug_enabled = true
 debug_path_custom_color = Color(0.5698934, 0, 0.0857453, 1)
 debug_path_custom_line_width = 2.0
+
+[node name="SwingPos" type="Node2D" parent="." index="7" unique_id=1921965796]
+position = Vector2(22, 0)
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

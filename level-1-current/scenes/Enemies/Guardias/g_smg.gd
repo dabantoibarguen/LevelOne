@@ -3,7 +3,8 @@ extends Guardia_Base
 var bullet_count = 25
 
 func _ready() -> void:
-	attk_range = 100
+	attk_range = 150
+	hear_range = 32
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:
@@ -43,3 +44,7 @@ func _on_attack_delay_timeout() -> void:
 				#target_position += target_vertical
 				sway = 0.05
 	
+	
+func _physics_process(delta: float) -> void:
+	super(delta)
+	track(delta)

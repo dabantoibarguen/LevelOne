@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 # For all guards
 var bullet_path = preload("res://scenes/Weapons/bullet_0.tscn")
-var swing_path = preload("res://scenes/Weapons/swing_0.tscn")
+
 @onready var nav = $NavigationAgent2D
 @onready var attackDelay = $AttackDelay
 @onready var navReset = $NavReset
@@ -27,10 +27,10 @@ var category = "Enemy"
 var speed = 30
 var HP = 2
 var sway
-var attack
 
-@export var attk_speed :float = 1.5
-@export var attk_range :float
+@export var attk_speed = 1.5
+@export var attk_range = 30
+@export var hear_range = 10
 
 # --------------------------------------------------
 # SETUP (READY, BASE FUNCTIONS)
@@ -41,6 +41,8 @@ func _ready() -> void:
 	navReset.wait_time = 2
 	startingLocation = global_position
 	nav.target_desired_distance = attk_range
+	$HearingRange/Hear.shape = $HearingRange/Hear.shape.duplicate()
+	$HearingRange/Hear.shape.radius = hear_range
 		
 func take_damage(dmg):
 	self.HP -= dmg
@@ -68,7 +70,6 @@ func _on_hearing_range_body_exited(body: Node2D) -> void:
 		navigating = false
 		remove_child(vision_ray)
 		attackDelay.stop()
-		
 # --------------------------------------------------
 # NAVIGATION (NEEDS SPEED AND ATTACK RANGE)
 # --------------------------------------------------
@@ -120,6 +121,11 @@ func _on_nav_reset_timeout() -> void:
 func _physics_process(delta: float) -> void:
 	if vision_ray != null:
 		vision_ray.target_position = (target.global_position - global_position)
+		var collider = vision_ray.get_collider()
+		if collider is CharacterBody2D:
+			if collider.category == "Enemy":
+				vision_ray.add_exception(collider)
+				vision_ray.force_raycast_update()
 	if navigating:
 		if(nav.is_navigation_finished() and nav.is_target_reached()):
 			pass
@@ -128,4 +134,3 @@ func _physics_process(delta: float) -> void:
 				#attacking = true
 		else:
 			nav.target_position = target.global_position
-	track(delta)
