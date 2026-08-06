@@ -1,5 +1,51 @@
 # Update Log
 
+## 5-08-2021
+
+### Summary
+- Melee guard attack implemented
+- Jose update (shooting delay and invisibility frames)
+- Updated Level 1 map for testing
+- Guard customizability udpate
+
+### Details
+- Melee Guard
+    - Attack speed of 0.8
+    - Hits the latest location towards Jose
+    - Fastest enemy
+    - 3 HP for durability
+
+- Jose Update
+    - Can shoot every 0.3 seconds
+    - Can't take damage within 0.4 seconds of being hurt
+    - No death implemented yet
+
+- Swing scene
+    - Highly dependent on parent (Melee guard)
+    - Updates constantly, hides visibility when animation is done
+    - Needs a better animation and sound effects. Purely placeholders atm
+ 
+- Guard customizability
+    - Hearing range points to different shapes so they can be unique
+    - Ready function with super() should be run after parameters are set within children
+    - Navigation Agents do function independently
+ 
+- Level 1
+    - https://www.canva.com/design/DAHEcrwY9Iw/6ggjlt2leKRWtDzwm7_ygg/edit
+    - Enemies placed in planned positions. Level 2 needs a link
+    - Guard count and ranges (hearing and attacking) require updates
+
+
+### Plans for next update
+- Balance enemies
+- Build levels properly
+- Debugging -> Export
+
+  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 ## 30-07-2021
 
 ### Summary
