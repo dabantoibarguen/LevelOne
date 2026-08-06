@@ -6,7 +6,7 @@
 - Melee guard attack implemented
 - Jose update (shooting delay and invisibility frames)
 - Updated Level 1 map for testing
-- Guard customizability udpate
+- Guard customizability update
 
 ### Details
 - Melee Guard
