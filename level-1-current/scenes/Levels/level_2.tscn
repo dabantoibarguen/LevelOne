@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhhoog6oraph2" path="res://assets/maps/Map Making Room 1 empty.png" id="1_3s172"]
 [ext_resource type="PackedScene" uid="uid://d1vq586f7g6p2" path="res://scenes/Jose/jose.tscn" id="2_yye74"]
+[ext_resource type="PackedScene" uid="uid://dsa7dfje4m2ge" path="res://scenes/Enemies/Guardias/g_cuerpo.tscn" id="3_04sgr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_3s172")
@@ -71,3 +72,6 @@ tile_set = SubResource("TileSet_rus8k")
 zoom = Vector2(1.8, 1.8)
 
 [node name="Node" type="Node" parent="." unique_id=1737065587]
+
+[node name="GuardiaCuerpo" parent="." unique_id=973501468 instance=ExtResource("3_04sgr")]
+position = Vector2(311, 0)

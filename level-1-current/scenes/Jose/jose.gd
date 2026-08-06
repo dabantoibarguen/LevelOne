@@ -2,16 +2,20 @@ extends CharacterBody2D
 
 var bullet_path = preload("res://scenes/weapons/bullet_0.tscn")
 
-const SPEED = 350.0
+const SPEED = 325.0
 var idle_dir:String
 var type = "player"
 var HP = 3
+var gun_lock
+var inv_frames
 
 @onready var category = "Player"
 
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	gun_lock = false
+	inv_frames = false
 	$AnimatedSprite2D.play("idle_up")
 
 func _physics_process(delta: float) -> void:
@@ -45,15 +49,21 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(dmg):
-	self.HP -= dmg
-	if HP<= 0:
-		pass
+	if !inv_frames:
+		print("Pain")
+		self.HP -= dmg
+		inv_frames = true
+		await get_tree().create_timer(0.4).timeout
+		inv_frames = false
+		if HP<= 0:
+			pass
+	
 
 func _input(ev):
 	if ev is InputEventMouseButton: #Mouse clicks
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
-		if ev.button_index == 1 and ev.button_mask == 1: # button mask 1 is click down, 0 is up
+		if ev.button_index == 1 and ev.button_mask == 1 and !gun_lock: # button mask 1 is click down, 0 is up
 			var mouse_pos = get_global_mouse_position()
 			var bullet = bullet_path.instantiate() # Get bullet instance
 			bullet.dir = (mouse_pos - $Bullet_Pos.global_position).normalized()
@@ -63,5 +73,8 @@ func _input(ev):
 			$RevolverSound.pitch_scale = rng.randf_range(0.6, 1)
 			$RevolverSound.play()
 			get_parent().add_child(bullet)
+			gun_lock = true
+			await get_tree().create_timer(0.3).timeout
+			gun_lock = false
 	
 	

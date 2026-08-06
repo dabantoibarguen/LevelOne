@@ -1,7 +1,8 @@
 extends Guardia_Base
 
 func _ready() -> void:
-	attk_range = 150
+	attk_range = 200
+	hear_range = 32
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:
@@ -31,3 +32,6 @@ func _on_attack_delay_timeout() -> void:
 			
 			await get_tree().create_timer(0.08).timeout
 	
+func _physics_process(delta: float) -> void:
+	super(delta)
+	track(delta)
