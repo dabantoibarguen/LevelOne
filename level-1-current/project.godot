@@ -24,6 +24,10 @@ config/icon="res://icon.svg"
 shapes/navigation/2d/agent_path_point_size=5.0
 shapes/avoidance/2d/agents_radius_color=Color(1, 0.60124344, 0.697192, 0.68700004)
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 ui_left={

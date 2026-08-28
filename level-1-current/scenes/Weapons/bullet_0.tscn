@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://blakaeo5g46ht"]
+
+[ext_resource type="Script" uid="uid://c18ry1tngh4sr" path="res://scenes/Weapons/bullet_0.gd" id="1_e6evi"]
+[ext_resource type="Texture2D" uid="uid://2x4h1h2l02ak" path="res://assets/sprite_sheets/bullet_sprite.png" id="2_e6evi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4k7"]
+size = Vector2(133.88559, 39.038376)
+
+[node name="bullet0" type="Area2D" unique_id=1677372527]
+top_level = true
+z_index = -1
+scale = Vector2(-0.705672, -0.645214)
+collision_priority = 2.0
+input_pickable = false
+script = ExtResource("1_e6evi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526880741]
+position = Vector2(0.5401889, -0.049873203)
+scale = Vector2(0.15625001, 0.15625)
+shape = SubResource("RectangleShape2D_7f4k7")
+
+[node name="VisibleNotif" type="VisibleOnScreenNotifier2D" parent="." unique_id=1005887945]
+scale = Vector2(1.13485, 0.322564)
+rect = Rect2(-10, -9.616607, 9.870207, 19.616608)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358557603]
+modulate = Color(0.3019608, 0.3019608, 0.3019608, 1)
+self_modulate = Color(0.38505104, 0.39618057, 0.8871515, 1)
+position = Vector2(0.20497668, 0.0001735195)
+rotation = 1.5709033
+scale = Vector2(0.034430318, -0.044712745)
+texture = ExtResource("2_e6evi")
+
+[connection signal="screen_entered" from="VisibleNotif" to="." method="_on_visible_notif_screen_entered"]
