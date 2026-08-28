@@ -9,6 +9,7 @@ script = ExtResource("2_6wlxw")
 [node name="NavigationAgent2D" parent="." index="2" unique_id=1880838204]
 target_desired_distance = 150.0
 path_max_distance = 200.0
+debug_enabled = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

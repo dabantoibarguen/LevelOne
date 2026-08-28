@@ -26,7 +26,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o44ki"]
 
-[node name="GuardiaCuerpo" type="CharacterBody2D" unique_id=973501468]
+[node name="GuardiaBase" type="CharacterBody2D" unique_id=973501468]
 safe_margin = 1.0
 script = ExtResource("1_lvo7g")
 
@@ -34,6 +34,7 @@ script = ExtResource("1_lvo7g")
 position = Vector2(0, 1)
 scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_g6xck")
+one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126775852]
 position = Vector2(2.000003, 0.9999988)
@@ -63,7 +64,7 @@ volume_db = -17.558
 pitch_scale = 0.01
 
 [node name="swing0" parent="." unique_id=1677372527 instance=ExtResource("4_3gcu7")]
-position = Vector2(17, 0)
+position = Vector2(-1.0000019, 3)
 rotation = -3.1415925
 scale = Vector2(1.9789871, 1.9688042)
 

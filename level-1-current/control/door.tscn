@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://etcq7ifck6d5"]
+
+[ext_resource type="Script" uid="uid://b7c4ddqsl3ksv" path="res://control/door.gd" id="1_xhari"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agcja"]
+size = Vector2(44, 21)
+
+[node name="door" type="StaticBody2D" unique_id=158973442]
+script = ExtResource("1_xhari")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696783991]
+shape = SubResource("RectangleShape2D_agcja")
+disabled = true
