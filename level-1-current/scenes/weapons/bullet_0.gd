@@ -7,8 +7,7 @@ var dmg = 1
 
 var origin_category:String
 
-@onready var speed = 600
-
+@onready var speed = 1200
 @onready var offscreen_timer := 0.0
 @onready var offscreen = false
 

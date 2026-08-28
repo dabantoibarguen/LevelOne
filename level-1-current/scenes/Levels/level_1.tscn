@@ -192,7 +192,6 @@ rotation = 1.5798079
 scale = Vector2(3.3109238, 2.044659)
 
 [node name="GuardiaCuerpo4" parent="Cuarto 2" unique_id=887230776 instance=ExtResource("3_3ydyl")]
-visible = false
 position = Vector2(536, -1577)
 
 [node name="GuardiaPistola" parent="Cuarto 2" unique_id=806465644 instance=ExtResource("3_fkdrv")]
