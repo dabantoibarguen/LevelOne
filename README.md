@@ -1,5 +1,52 @@
 # Update Log
 
+
+## 5-27-2021
+
+### Summary
+- Detection fixes (based on ray cast, not hearing)
+- Room separation
+- New mechanics discussed
+- Killed Jose, made him a Virus
+- First story draft
+
+### Details
+- Detection fixes
+    - Raycast is created when the thugs are loaded
+    - Raycast points to Jose when he enters the room
+    - Tracking begins when line of sight is confirmed
+    - Pending: Being tracking when a sound is heard
+    - Pending: Hearing range to be expanded or reworked
+ 
+- Rooms
+    - Clear entries and exits, locked when Player enters the area
+    - Entries and exits unlock when all enemies within are killed
+    - Engages enemy vision Raycast when entered
+    - Pending: Fix position so Jose is not bumped inside
+    - Pending: Warning so Jose knows he has entered a room. Visual/Sound required
+ 
+- New mechanics (The Virus)
+    - Remove Jose as an entity
+    - The Virus will take over the bodies of enemies (with their weapons and HP)
+ 
+- Story draft
+    - Focus on the unnamed grandchild
+    - Done in runs. 4-5 levels depending on choices, interactions in between
+    - 4 main bosses, 2 offered at random each levels
+    - Unselected boss shows up the next level
+    - A boss that's skipped twice becomes the "Final Boss" for that run
+    - If every boss is selected so that they don't become a "Final Boss", a 5th boss appears for an extra level
+    - WIP: When defeating a boss, some of their personality gets absorbed along their data
+    - WIP: Different endings based on choices and interactions between levels
+ 
+### Plans for next update
+- Generalize Room Scene (if possible)
+- Decide if all doors open, or only the "exits"
+- Revise/Polish story
+- Implement "Possession" mechanics
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## 5-08-2021
 
 ### Summary
