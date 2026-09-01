@@ -1,5 +1,39 @@
-# Update Log
+# Current tasks
+### Possession Mechanics
+- Shift key press -> Highlight enemies that can be possessed
+- Mouse click + Shift Key -> Take over highlighted enemy
+- Cooldown timer started after possession is complete
+- Sprite overwrite or modification for possessed enemy
+- Life, weapon and speed update based on possessed enemy
+- Visual indicator of cooldown timer
+    - Show indicator when it is available vs show cooldown indicator while recharging
+    - Decide between: Indicator always visible, visible while pressing Shift, visible in the pause menu
+- Life indicator for current body. (EXTRA) Life indicator for bodies that can be possessed
+- (EXTRA) Grace period when current body dies to jump, or warning when body can only take one more hit
 
+### UI/Gameflow
+- Pause button
+    - Continue, Retry, Exit buttons
+    - Settings/Options button
+- Death -> Retry from start
+    - Checkpoints for longer levels. None for now
+- Pre-level room exploration
+    - Hop from room to room to scout and choose starting body
+    - Enemy type info when hovering over
+    - (EXTRA, low priority) Pre-level hacking menu
+
+### General
+- Breakable objects (do CharacterBody2D, give "category" variable)
+- Patrol routes for enemies. Currently static until engaged
+- Clean up attacking assets and timing (mainly melee)
+- Dash/Dodge mechanic?
+- Melee hits to break bullets?
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Update Log
 
 ## 5-27-2021
 
