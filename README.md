@@ -23,6 +23,7 @@
     - (EXTRA, low priority) Pre-level hacking menu
 
 ### General
+- Player usable weapons ✅
 - Breakable objects (do CharacterBody2D, give "category" variable)
 - Patrol routes for enemies. Currently static until engaged
 - Clean up attacking assets and timing (mainly melee)
@@ -35,7 +36,37 @@
 
 # Update Log
 
-## 5-27-2021
+## 1-09-2026
+
+### Summary
+- New inputs, weapon fixes
+- Task organization
+
+### Details
+- Shift input
+    - Red transparent overlay on all enemies when the Shift key is pressed
+    - Simple shaders code implemented. Instance and global options available 
+
+- Mouse input
+    - attack() and shoot(sway, mouse_pos, deg) functions created
+    - Left click input moved to process to allow holding down the button
+    - Needs change to disallow holding down for weapons other than SMG (maybe)
+ 
+- Usable player weapons
+    - attack() function distinguishes Pistol, SMG and Shotgun (melee pending)
+    - Shotgun spread fixed!
+    - Sway calculations updated (no longer multiplicative, works in every direction)
+ 
+- Task list at the top of the readme file
+ 
+### Plans for next update
+- I-frames for enemies?
+- Player melee weapon (Knife)
+- Continue working on "Possession" mechanics and other pendings
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 27-08-2026
 
 ### Summary
 - Detection fixes (based on ray cast, not hearing)
@@ -81,7 +112,7 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 5-08-2021
+## 5-08-2026
 
 ### Summary
 - Melee guard attack implemented
@@ -127,7 +158,7 @@
 
 
 
-## 30-07-2021
+## 30-07-2026
 
 ### Summary
 - Navigation agent and navigation regions refined
@@ -159,7 +190,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-## 29-07-2021
+## 29-07-2026
 
 ### Summary
 - Reorganized files and created base guard scene/script
@@ -194,7 +225,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-## 21-07-2021
+## 21-07-2026
 
 ### Summary
 - Created Update Log
