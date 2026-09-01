@@ -162,6 +162,9 @@ position = Vector2(-87.00001, -136)
 rotation = -0.005966313
 scale = Vector2(3.3109238, 2.044659)
 
+[node name="GuardiaShotgun" parent="Cuarto 1" unique_id=1221942392 instance=ExtResource("5_o21ul")]
+position = Vector2(-86, -592)
+
 [node name="jose" parent="." unique_id=797937788 instance=ExtResource("3_vtxvj")]
 position = Vector2(-84, -1)
 

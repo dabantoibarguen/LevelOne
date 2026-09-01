@@ -6,19 +6,32 @@ const SPEED = 325.0
 var idle_dir:String
 var type = "player"
 var HP = 3
-var gun_lock
+var weapon_lock
 var inv_frames
 
+# Weapon_Name: [attack speed, sway, ranged/melee]. Add speed?
+var weapon_types = {
+	"Pistol": [0.3, 1],
+	"SMG": [0.08, 2],
+	"Shotgun": [0.5, 0.008333333],
+	"Knife": [0.15, 0.0]
+}
+
 @onready var category = "Player"
+@onready var weapon = "Pistol"
 
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	gun_lock = false
+	weapon_lock = false
 	inv_frames = false
 	$AnimatedSprite2D.play("idle_up")
+	
 
 func _physics_process(delta: float) -> void:
+	var input = Input
+	if input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !weapon_lock:
+		attack()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -50,7 +63,6 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage(dmg):
 	if !inv_frames:
-		print("Pain")
 		self.HP -= dmg
 		inv_frames = true
 		await get_tree().create_timer(0.4).timeout
@@ -58,23 +70,49 @@ func take_damage(dmg):
 		if HP<= 0:
 			pass
 	
+func shoot(sway, mouse_pos, deg):
+	var rand_sway = Vector2(rng.randf_range(-sway, sway)*4, rng.randf_range(-sway, sway)*4)
+	var bullet = bullet_path.instantiate() # Get bullet instance
+	bullet.dir = ((mouse_pos+rand_sway - $Bullet_Pos.global_position).normalized()).rotated(deg)
+	bullet.pos = global_position
+	bullet.rot = get_angle_to(mouse_pos)
+	bullet.origin_category = category
+	get_parent().add_child(bullet)	
+	
+	
+
+func attack():
+	var weapon_params = weapon_types.get(weapon)
+	var attk_speed = weapon_params[0]
+	var sway = weapon_params[1]
+	var mouse_pos = get_global_mouse_position()
+	
+	match weapon:
+		"Shotgun":
+			var arc = deg_to_rad(4.0)
+			for deg in [-arc, 0, arc]: #5 degree arc
+				shoot(sway, mouse_pos, deg)
+		"Pistol", "SMG":
+			shoot(sway, mouse_pos, 0)
+				
+	
+	weapon_lock = true
+	await get_tree().create_timer(attk_speed).timeout
+	weapon_lock = false
+		
 
 func _input(ev):
 	if ev is InputEventMouseButton: #Mouse clicks
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
-		if ev.button_index == 1 and ev.button_mask == 1 and !gun_lock: # button mask 1 is click down, 0 is up
-			var mouse_pos = get_global_mouse_position()
-			var bullet = bullet_path.instantiate() # Get bullet instance
-			bullet.dir = (mouse_pos - $Bullet_Pos.global_position).normalized()
-			bullet.pos = global_position
-			bullet.rot = get_angle_to(mouse_pos)
-			bullet.origin_category = category
-			$RevolverSound.pitch_scale = rng.randf_range(0.6, 1)
-			$RevolverSound.play()
-			get_parent().add_child(bullet)
-			gun_lock = true
-			await get_tree().create_timer(0.3).timeout
-			gun_lock = false
+		pass
+	if ev is InputEventKey and ev.pressed:
+		if ev.keycode == KEY_1:
+			weapon = "Pistol"
+		if ev.keycode == KEY_2:
+			weapon = "Shotgun"
+		if ev.keycode == KEY_3:
+			weapon = "SMG"
+
 	
 	

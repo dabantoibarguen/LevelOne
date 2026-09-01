@@ -28,7 +28,7 @@ var rand_targ = Vector2(0, 0)
 # Guard specific
 var speed = 40
 var HP = 2
-var sway
+var sway = 1 # default sway
 
 @export var attk_speed = 1.5
 @export var attk_range = 30

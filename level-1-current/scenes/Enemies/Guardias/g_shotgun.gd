@@ -22,19 +22,18 @@ func _on_hearing_range_body_exited(body: Node2D) -> void:
 
 func _on_attack_delay_timeout() -> void:
 	if vision_ray.get_collider() is CharacterBody2D && vision_ray.get_collider().name == "jose":
-		for deg in [0.972222222, 1, 1.0277777778]: #30 degree arc
+		var arc = deg_to_rad(4.0)
+		for deg in [-arc, 0, arc]: #5 degree arc
 			var bullet = bullet_path.instantiate()
-			var rand_sway = rng.randf_range(0.991666667, 1.00833333)
-			target_position = target.global_position * deg * rand_sway
-			print((target_position - global_position).normalized())
+			var rand_sway = Vector2(rng.randf_range(-sway, sway)*4, rng.randf_range(-sway, sway)*4)
+			target_position = (target.global_position+rand_sway)
 			bullet.rot = get_angle_to(target_position)
 			bullet.pos = global_position
-			bullet.dir = (target_position - global_position).normalized()
+			bullet.dir = ((target_position - global_position).normalized()).rotated(deg)
 			bullet.origin_category = category
 			get_parent().add_child(bullet)
 			$WeaponSound.pitch_scale = rng.randf_range(0.8, 1.8)
 			$WeaponSound.play()
-		print()
 
 	
 func _physics_process(delta: float) -> void:
