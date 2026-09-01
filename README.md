@@ -1,6 +1,6 @@
 # Current tasks
 ### Possession Mechanics
-- Shift key press -> Highlight enemies that can be possessed
+- Shift key press -> Highlight enemies that can be possessed ✅
 - Mouse click + Shift Key -> Take over highlighted enemy
 - Cooldown timer started after possession is complete
 - Sprite overwrite or modification for possessed enemy
