@@ -10,6 +10,7 @@ var bullet_path = preload("res://scenes/Weapons/bullet_0.tscn")
 @onready var nav = $NavigationAgent2D
 @onready var attackDelay = $AttackDelay
 @onready var navReset = $NavReset
+@onready var sprite_shader = $AnimatedSprite2D.material as ShaderMaterial
 
 var navigating = false
 #var attacking = false
@@ -36,7 +37,6 @@ var sway
 # --------------------------------------------------
 # SETUP (READY, BASE FUNCTIONS)
 # --------------------------------------------------
-		
 func _ready() -> void:
 	vision_ray = RayCast2D.new()
 	attackDelay.wait_time = attk_speed
@@ -141,3 +141,11 @@ func _physics_process(delta: float) -> void:
 	# Move the enemy
 	if navigating:
 		nav.target_position = target.global_position + rand_targ
+
+func _input(ev):
+	if ev is InputEventKey:
+		if ev.keycode == KEY_SHIFT:
+			if ev.pressed:
+				sprite_shader.set_shader_parameter("highlight_all", true)
+			else:
+				sprite_shader.set_shader_parameter("highlight_all", false)

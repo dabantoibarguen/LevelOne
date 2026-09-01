@@ -3,6 +3,8 @@ extends Area2D
 var enemies = []
 var puertas = []
 
+var category = "room"
+
 func _ready() -> void:
 	for child in get_children():
 		if child is CharacterBody2D and child.category == "Enemy":

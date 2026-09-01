@@ -2,11 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://bccr0in61bg4h" path="res://assets/sprite_sheets/imageedit_60_4292215627.png" id="1_jipf1"]
 [ext_resource type="Script" uid="uid://6k1djailos5" path="res://scenes/Enemies/Guardias/guardia_base.gd" id="1_lvo7g"]
+[ext_resource type="Shader" uid="uid://oqn2635w3ki8" path="res://scenes/Enemies/Guardias/guardia_base.gdshader" id="2_g6xck"]
 [ext_resource type="AudioStream" uid="uid://u8t8h3dkwx4q" path="res://assets/SFX/Gun Shot.mp3" id="2_lvo7g"]
 [ext_resource type="PackedScene" uid="uid://72v33c6rtma7" path="res://scenes/Weapons/swing_0.tscn" id="4_3gcu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6xck"]
 size = Vector2(26.999992, 34)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o44ki"]
+shader = ExtResource("2_g6xck")
+shader_parameter/highlight_all = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gcu7"]
 animations = [{
@@ -37,6 +42,7 @@ shape = SubResource("RectangleShape2D_g6xck")
 one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126775852]
+material = SubResource("ShaderMaterial_o44ki")
 position = Vector2(2.000003, 0.9999988)
 scale = Vector2(0.1215933, 0.038946163)
 sprite_frames = SubResource("SpriteFrames_3gcu7")
@@ -64,7 +70,7 @@ volume_db = -17.558
 pitch_scale = 0.01
 
 [node name="swing0" parent="." unique_id=1677372527 instance=ExtResource("4_3gcu7")]
-position = Vector2(-1.0000019, 3)
+visible = false
 rotation = -3.1415925
 scale = Vector2(1.9789871, 1.9688042)
 
