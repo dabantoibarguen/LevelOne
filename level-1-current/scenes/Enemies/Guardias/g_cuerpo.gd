@@ -7,14 +7,12 @@ func _ready() -> void:
 	speed = 75
 	attk_speed = 0.8
 	hear_range = 15
+	weapon = "Knife"
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:
 	# Detecting Jose by hearing
 	super(body)
-	if body.name == "jose":
-		sprite_shader.set_shader_parameter("highlight", "true")
-		$AnimatedSprite2D.queue_redraw()
 		
 func _on_hearing_range_body_exited(body: Node2D) -> void:
 	super(body)
@@ -25,8 +23,6 @@ func _on_hearing_range_body_exited(body: Node2D) -> void:
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	if(global_position.distance_to(startingLocation) < 2):
 		nav.target_position = global_position
-	else:
-		navReset.start()
 
 func _on_navigation_agent_2d_target_reached() -> void:
 	pass

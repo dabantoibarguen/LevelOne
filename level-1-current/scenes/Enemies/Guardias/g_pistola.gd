@@ -3,6 +3,7 @@ extends Guardia_Base
 func _ready() -> void:
 	attk_range = 200
 	hear_range = 20
+	weapon = "Pistol"
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:

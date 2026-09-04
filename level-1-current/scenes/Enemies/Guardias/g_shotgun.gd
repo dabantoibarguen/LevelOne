@@ -7,6 +7,7 @@ func _ready() -> void:
 	speed = 40
 	attk_range = 100
 	hear_range = 24
+	weapon = "Shotgun"
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:
@@ -34,7 +35,6 @@ func _on_attack_delay_timeout() -> void:
 			get_parent().add_child(bullet)
 			$WeaponSound.pitch_scale = rng.randf_range(0.8, 1.8)
 			$WeaponSound.play()
-
 	
 func _physics_process(delta: float) -> void:
 	super(delta)

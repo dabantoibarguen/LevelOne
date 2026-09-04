@@ -36,10 +36,12 @@ safe_margin = 1.0
 script = ExtResource("1_lvo7g")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=2143022]
+process_physics_priority = 2
 position = Vector2(0, 1)
 scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_g6xck")
 one_way_collision = true
+one_way_collision_margin = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126775852]
 material = SubResource("ShaderMaterial_o44ki")
@@ -62,8 +64,6 @@ shape = SubResource("CircleShape2D_o44ki")
 
 [node name="AttackDelay" type="Timer" parent="." unique_id=430272637]
 
-[node name="NavReset" type="Timer" parent="." unique_id=1574679325]
-
 [node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=319471375]
 stream = ExtResource("2_lvo7g")
 volume_db = -17.558
@@ -74,4 +74,6 @@ visible = false
 rotation = -3.1415925
 scale = Vector2(1.9789871, 1.9688042)
 
-[connection signal="timeout" from="NavReset" to="." method="_on_nav_reset_timeout"]
+[node name="Vision Ray" type="RayCast2D" parent="." unique_id=1150397708]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

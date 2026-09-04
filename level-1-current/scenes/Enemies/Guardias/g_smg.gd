@@ -6,6 +6,7 @@ func _ready() -> void:
 	attk_range = 150
 	hear_range = 32
 	sway = 10
+	weapon = "SMG"
 	super()
 
 func _on_hearing_range_body_entered(body: Node2D) -> void:

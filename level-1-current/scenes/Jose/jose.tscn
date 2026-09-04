@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://7mrwbtl3v3nl" path="res://scenes/Jose/jose.gd" id="1_ie0vw"]
 [ext_resource type="Texture2D" uid="uid://ba23w4bu4dy85" path="res://assets/sprite_sheets/spritesheet jose 64x64 actual (1).png" id="2_uyjq6"]
 [ext_resource type="AudioStream" uid="uid://iy02t36ne137" path="res://assets/SFX/Jose revolver B.mp3" id="3_givbp"]
+[ext_resource type="PackedScene" uid="uid://72v33c6rtma7" path="res://scenes/Weapons/swing_0.tscn" id="4_wdviv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pkag"]
 size = Vector2(29, 39.356995)
@@ -277,3 +278,8 @@ scale = Vector2(0.997411, -1)
 
 [node name="RevolverSound" type="AudioStreamPlayer2D" parent="." unique_id=618096849]
 stream = ExtResource("3_givbp")
+
+[node name="swing0" parent="." unique_id=1677372527 instance=ExtResource("4_wdviv")]
+visible = false
+rotation = -3.1415925
+scale = Vector2(1.9789871, 1.9688042)

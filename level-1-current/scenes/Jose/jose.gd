@@ -2,24 +2,26 @@ extends CharacterBody2D
 
 var bullet_path = preload("res://scenes/weapons/bullet_0.tscn")
 
-const SPEED = 325.0
-var idle_dir:String
-var type = "player"
 var HP = 3
-var weapon_lock
-var inv_frames
+var SPEED = 325.0
+
+@onready var weapon = "Pistol"
+@onready var category = "Player"
+@onready var swing = $swing0
 
 # Weapon_Name: [attack speed, sway, ranged/melee]. Add speed?
 var weapon_types = {
 	"Pistol": [0.3, 1],
-	"SMG": [0.08, 2],
+	"SMG": [0.15, 2],
 	"Shotgun": [0.5, 0.008333333],
 	"Knife": [0.15, 0.0]
 }
 
-@onready var category = "Player"
-@onready var weapon = "Pistol"
 
+var weapon_lock
+var inv_frames
+
+var idle_dir:String
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -60,7 +62,14 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play(idle_dir)
 	
 	move_and_slide()
-	
+
+func possess(enemy):
+	# Absorb attributes
+	HP = enemy.HP
+	SPEED = enemy.speed * 8 # Really need to fix the speed of Jose vs enemies
+	weapon = enemy.weapon
+	global_position = enemy.global_position
+
 func take_damage(dmg):
 	if !inv_frames:
 		self.HP -= dmg
@@ -71,14 +80,15 @@ func take_damage(dmg):
 			pass
 	
 func shoot(sway, mouse_pos, deg):
-	var rand_sway = Vector2(rng.randf_range(-sway, sway)*4, rng.randf_range(-sway, sway)*4)
+	var rand_sway = Vector2(rng.randf_range(-sway, sway)*2, rng.randf_range(-sway, sway)*2)
 	var bullet = bullet_path.instantiate() # Get bullet instance
 	bullet.dir = ((mouse_pos+rand_sway - $Bullet_Pos.global_position).normalized()).rotated(deg)
 	bullet.pos = global_position
-	bullet.rot = get_angle_to(mouse_pos)
+	bullet.rot = get_angle_to(mouse_pos + rand_sway)
 	bullet.origin_category = category
 	get_parent().add_child(bullet)	
-	
+	$RevolverSound.pitch_scale = rng.randf_range(0.9, 1.5)
+	$RevolverSound.play()
 	
 
 func attack():
@@ -94,6 +104,12 @@ func attack():
 				shoot(sway, mouse_pos, deg)
 		"Pistol", "SMG":
 			shoot(sway, mouse_pos, 0)
+		"Knife":
+			swing.play_anim()
+			swing.dir = (mouse_pos - global_position).normalized()
+			swing.rotation = get_angle_to(mouse_pos)
+			#$WeaponSound.pitch_scale = rng.randf_range(3.9, 4.2)
+			#$WeaponSound.play()
 				
 	
 	weapon_lock = true
@@ -102,6 +118,7 @@ func attack():
 		
 
 func _input(ev):
+	
 	if ev is InputEventMouseButton: #Mouse clicks
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
@@ -113,6 +130,8 @@ func _input(ev):
 			weapon = "Shotgun"
 		if ev.keycode == KEY_3:
 			weapon = "SMG"
+		if ev.keycode == KEY_4:
+			weapon = "Knife"
 
 	
 	
