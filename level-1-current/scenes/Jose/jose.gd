@@ -6,11 +6,11 @@ var bullet_path = preload("res://scenes/weapons/bullet_0.tscn")
 var HP = 3
 var SPEED = 325.0
 
-@onready var weapon = "SMG"
+@onready var weapon = "Pistol"
 @onready var category = "Player"
 @onready var swing = $swing0
 
-# Weapon_Name: [attack speed, sway, ranged/melee]. Add speed?
+# Weapon_Name: [attack speed, sway]. 
 var weapon_types = {
 	"Pistol": [0.3, 1],
 	"SMG": [0.15, 2],
@@ -43,61 +43,46 @@ func _physics_process(delta: float) -> void:
 	#look_at(get_global_mouse_position()) # Current position of mouse, makes sprite rotate. Goofyx
 	
 	velocity = direction * SPEED
-	
-	#var dash_direction = Vector2(0,0)
-	#match input.keycode:
-		#83:
-			#dash_direction = Vector2.DOWN
-			#anim = "move_down"
-		#65:
-			#dash_direction = Vector2.LEFT
-			#anim = "move_left"
-		#87:
-			#dash_direction = Vector2.UP
-			#anim = "move_up"
-		#68:
-			#dash_direction = Vector2.RIGHT
-			#anim = "move_right"
 
-	if direction.x > 0.7: #Takes care of right diagonals too
-		moving_dir = "move_right"
-		idle_dir = "idle_right"
-	elif direction.x < -0.7: #Takes care of left diagonals
-		moving_dir = "move_left"
-		idle_dir = "idle_left"
-	elif direction.y == -1.0:
+	if direction.y == -1.0:
 		moving_dir = "move_up"
 		idle_dir = "idle_up"
 	elif direction.y == 1.0:
 		moving_dir = "move_down"
 		idle_dir = "idle_down"
+	elif direction.x > 0.7: #Takes care of right diagonals too
+		moving_dir = "move_right"
+		idle_dir = "idle_right"
+	elif direction.x < -0.7: #Takes care of left diagonals
+		moving_dir = "move_left"
+		idle_dir = "idle_left"
 	$AnimatedSprite2D.play(moving_dir)
 		
 	if direction == Vector2.ZERO:
 		$AnimatedSprite2D.play(idle_dir)
 	
 	if input.is_key_pressed(KEY_SHIFT) and !dash_cooldown:
-		pass
-	
-	
+		dash(direction, moving_dir)
+		return
+
 	move_and_slide()
 
 func dash(dash_direction, anim):
 	if dash_direction == Vector2(0,0) or dash_cooldown:
 		return
-		if anim == "":
-			return
-		inv_frames = true
-		dash_cooldown = true
-		for i in range(5):
-			#self.global_position = global_position + (dash_direction*15)
-			await get_tree().create_timer(0.03).timeout
-			$AnimatedSprite2D.play(anim)
-			velocity = dash_direction * SPEED*6
-			move_and_slide()
-		inv_frames = false
-		await get_tree().create_timer(0.5).timeout	
-		dash_cooldown = false
+	if anim == "":
+		return
+	inv_frames = true
+	dash_cooldown = true
+	for i in range(5):
+		#self.global_position = global_position + (dash_direction*15)
+		await get_tree().create_timer(0.03).timeout
+		$AnimatedSprite2D.play(anim)
+		velocity = dash_direction * SPEED*6
+		move_and_slide()
+	inv_frames = false
+	await get_tree().create_timer(0.8).timeout	
+	dash_cooldown = false
 
 func possess(enemy):
 	if(possess_cooldown):

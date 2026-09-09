@@ -51,8 +51,8 @@ func _ready() -> void:
 func take_damage(dmg):
 	self.HP -= dmg
 	if HP<= 0:
-		get_parent().checkEnemies(self)	
 		queue_free()
+		get_parent().checkEnemies(self)	
 		
 # --------------------------------------------------
 # HEARING AND VISION (FOR NAVIGATION AND ATTACKS)

@@ -29,6 +29,10 @@ func checkEnemies(enemy):
 		for door in puertas:
 			door.openDoor()
 		completed = true
+	else:
+		print(enemies)
+		enemies = enemies.filter(func(item): return is_instance_valid(item))
+				
 
 #func _on_body_exited(body: Node2D) -> void:
 	#pass # Replace with function body.
