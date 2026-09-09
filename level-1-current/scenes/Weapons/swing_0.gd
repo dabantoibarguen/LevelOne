@@ -6,6 +6,8 @@ var dmg = 1
 
 var origin_category:String
 
+#test
+
 
 func play_anim():
 	visible = true
@@ -20,7 +22,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if visible:
-		self.position = get_parent().global_position + dir * 30
+		self.position = parent.global_position + dir * 30
 	else:
 		self.position = parent.global_position
 

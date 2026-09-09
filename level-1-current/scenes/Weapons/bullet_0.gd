@@ -5,6 +5,8 @@ var rot:float
 var dir:Vector2
 var dmg = 1
 
+#Test
+
 var origin_category:String
 
 @onready var speed = 1200
