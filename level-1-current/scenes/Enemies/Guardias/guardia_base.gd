@@ -130,10 +130,12 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	# 1. Check if the event is a left mouse button press
 	if event is InputEventMouseButton and event.pressed and hovered and highlighted:
-		if  event.button_index == 1:
+		if  event.button_index == 2:
 			get_viewport().set_input_as_handled()
-			take_damage(HP) ## Destroy the body
-			%jose.possess(self)
+			if(!%jose.possess_cooldown):
+				take_damage(HP) ## Destroy the body
+				
+				%jose.possess(self)
 	if event is InputEventKey:
 		if event.keycode == KEY_SHIFT:
 			if event.pressed:

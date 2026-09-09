@@ -40,7 +40,6 @@ process_physics_priority = 2
 position = Vector2(0, 1)
 scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_g6xck")
-one_way_collision = true
 one_way_collision_margin = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126775852]
