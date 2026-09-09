@@ -5,9 +5,7 @@ var rot:float
 var dir:Vector2
 var dmg = 1
 
-#Test
-
-var origin_category:String
+@onready var origin_category = get_parent().category
 
 @onready var speed = 1200
 @onready var offscreen_timer := 0.0
