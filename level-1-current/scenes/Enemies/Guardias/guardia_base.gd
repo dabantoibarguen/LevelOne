@@ -15,6 +15,7 @@ var bullet_path = preload("res://scenes/Weapons/bullet_0.tscn")
 var navigating = false
 var hovered = false
 var highlighted = false
+var inv_frames = false
 #var attacking = false
 
 var target
@@ -22,6 +23,7 @@ var target_position
 #var target_vertical = 0
 var startingLocation
 var weapon
+
 
 var rng = RandomNumberGenerator.new()
 var category = "Enemy"
@@ -49,10 +51,14 @@ func _ready() -> void:
 	input_pickable = true
 		
 func take_damage(dmg):
-	self.HP -= dmg
+	if !inv_frames:
+		self.HP -= dmg
+		self.inv_frames = true
+		await get_tree().create_timer(0.1).timeout
+		self.inv_frames = false
 	if HP<= 0:
-		queue_free()
 		get_parent().checkEnemies(self)	
+		queue_free()
 		
 # --------------------------------------------------
 # HEARING AND VISION (FOR NAVIGATION AND ATTACKS)
@@ -133,6 +139,7 @@ func _input(event):
 		if event.button_index == 2:
 			get_viewport().set_input_as_handled()
 			if(!%jose.possess_cooldown):
+				visible = false
 				take_damage(HP) ## Destroy the body
 				get_parent().checkEnemies(self)	
 				%jose.possess(self)

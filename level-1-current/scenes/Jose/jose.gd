@@ -15,12 +15,11 @@ var weapon_types = {
 	"Pistol": [0.3, 1],
 	"SMG": [0.15, 2],
 	"Shotgun": [0.5, 0.008333333],
-	"Knife": [0.15, 0.0]
+	"Knife": [0.3, 0.0]
 }
 
-
-var weapon_lock
-var inv_frames
+var weapon_lock = false
+var inv_frames = false
 
 var dash_cooldown = false
 var possess_cooldown = false
@@ -136,7 +135,6 @@ func attack():
 			#$WeaponSound.pitch_scale = rng.randf_range(3.9, 4.2)
 			#$WeaponSound.play()
 				
-	
 	weapon_lock = true
 	await get_tree().create_timer(attk_speed).timeout
 	weapon_lock = false

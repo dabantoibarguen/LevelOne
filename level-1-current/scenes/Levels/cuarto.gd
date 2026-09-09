@@ -10,6 +10,7 @@ var completed = false
 
 func _ready() -> void:
 	pass
+		
 
 func _on_body_entered(body: Node2D) -> void:
 	if completed:
@@ -22,16 +23,18 @@ func _on_body_entered(body: Node2D) -> void:
 			if child is Door:
 				puertas.append(child)
 				child.closeDoor()
+		while !completed:
+			await get_tree().create_timer(3).timeout
+			enemies = enemies.filter(func(item): return is_instance_valid(item))	
+			checkEnemies()
 			
-func checkEnemies(enemy):
+func checkEnemies(enemy = ""):
 	enemies.erase(enemy)
 	if enemies == []:
 		for door in puertas:
 			door.openDoor()
 		completed = true
-	else:
-		print(enemies)
-		enemies = enemies.filter(func(item): return is_instance_valid(item))
+
 				
 
 #func _on_body_exited(body: Node2D) -> void:
