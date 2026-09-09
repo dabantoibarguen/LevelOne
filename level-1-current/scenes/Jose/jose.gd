@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var bullet_path = preload("res://scenes/weapons/bullet_0.tscn")
 
@@ -21,11 +22,11 @@ var weapon_types = {
 var weapon_lock
 var inv_frames
 
-var shift_pressed = false
 var dash_cooldown = false
 var possess_cooldown = false
 
 var idle_dir:String
+var moving_dir:String
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -37,34 +38,66 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var input = Input
 	if input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !weapon_lock:
-		attack()
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.	
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		attack()	
+	var direction = input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	#look_at(get_global_mouse_position()) # Current position of mouse, makes sprite rotate. Goofyx
 	
 	velocity = direction * SPEED
 	
-	
-	if direction.y == -1.0:
-		$AnimatedSprite2D.play("move_up")
-		idle_dir = "idle_up"
-	elif direction.y == 1.0:
-		$AnimatedSprite2D.play("move_down")
-		
-		idle_dir = "idle_down"
-	elif direction.x > 0.7: #Takes care of right diagonals too
-		$AnimatedSprite2D.play("move_right")
+	#var dash_direction = Vector2(0,0)
+	#match input.keycode:
+		#83:
+			#dash_direction = Vector2.DOWN
+			#anim = "move_down"
+		#65:
+			#dash_direction = Vector2.LEFT
+			#anim = "move_left"
+		#87:
+			#dash_direction = Vector2.UP
+			#anim = "move_up"
+		#68:
+			#dash_direction = Vector2.RIGHT
+			#anim = "move_right"
+
+	if direction.x > 0.7: #Takes care of right diagonals too
+		moving_dir = "move_right"
 		idle_dir = "idle_right"
 	elif direction.x < -0.7: #Takes care of left diagonals
-		$AnimatedSprite2D.play("move_left")
+		moving_dir = "move_left"
 		idle_dir = "idle_left"
-	elif direction == Vector2.ZERO:
-		$AnimatedSprite2D.play(idle_dir)
-	else:
+	elif direction.y == -1.0:
+		moving_dir = "move_up"
+		idle_dir = "idle_up"
+	elif direction.y == 1.0:
+		moving_dir = "move_down"
+		idle_dir = "idle_down"
+	$AnimatedSprite2D.play(moving_dir)
+		
+	if direction == Vector2.ZERO:
 		$AnimatedSprite2D.play(idle_dir)
 	
+	if input.is_key_pressed(KEY_SHIFT) and !dash_cooldown:
+		pass
+	
+	
 	move_and_slide()
+
+func dash(dash_direction, anim):
+	if dash_direction == Vector2(0,0) or dash_cooldown:
+		return
+		if anim == "":
+			return
+		inv_frames = true
+		dash_cooldown = true
+		for i in range(5):
+			#self.global_position = global_position + (dash_direction*15)
+			await get_tree().create_timer(0.03).timeout
+			$AnimatedSprite2D.play(anim)
+			velocity = dash_direction * SPEED*6
+			move_and_slide()
+		inv_frames = false
+		await get_tree().create_timer(0.5).timeout	
+		dash_cooldown = false
 
 func possess(enemy):
 	if(possess_cooldown):
@@ -98,7 +131,6 @@ func shoot(sway, mouse_pos, deg):
 	$RevolverSound.pitch_scale = rng.randf_range(0.9, 1.5)
 	$RevolverSound.play()
 	
-
 func attack():
 	var weapon_params = weapon_types.get(weapon)
 	var attk_speed = weapon_params[0]
@@ -131,38 +163,3 @@ func _input(ev):
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
 		pass
-	if ev is InputEventKey:
-		if ev.keycode == KEY_SHIFT:
-			if ev.pressed:
-				shift_pressed = true
-			else:
-				shift_pressed = false
-		if shift_pressed and ev.pressed and !dash_cooldown:
-			var dash_direction = Vector2(0,0)
-			var anim = ""
-			match ev.keycode:
-				83:
-					dash_direction = Vector2.DOWN
-					anim = "move_down"
-				65:
-					dash_direction = Vector2.LEFT
-					anim = "move_left"
-				87:
-					dash_direction = Vector2.UP
-					anim = "move_up"
-				68:
-					dash_direction = Vector2.RIGHT
-					anim = "move_right"
-			if anim == "":
-				return
-			inv_frames = true
-			dash_cooldown = true
-			for i in range(5):
-				#self.global_position = global_position + (dash_direction*15)
-				await get_tree().create_timer(0.03).timeout
-				$AnimatedSprite2D.play(anim)
-				velocity = dash_direction * SPEED*6
-				move_and_slide()
-			inv_frames = false
-			await get_tree().create_timer(0.5).timeout	
-			dash_cooldown = false

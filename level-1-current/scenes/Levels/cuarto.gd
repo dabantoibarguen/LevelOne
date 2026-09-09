@@ -16,10 +16,12 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if body.name == "jose":
 		for child in get_children():
-			if child is CharacterBody2D and child.category == "Enemy":
+			if child is Guardia:
 				enemies.append(child)
 				child.target = jose
-			
+			if child is Door:
+				puertas.append(child)
+				child.closeDoor()
 			
 func checkEnemies(enemy):
 	enemies.erase(enemy)

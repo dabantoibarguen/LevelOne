@@ -1,4 +1,4 @@
-extends Guardia_Base
+extends Guardia
 
 var bullet_count = 3
 var bullet_arc = 30

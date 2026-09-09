@@ -1,4 +1,4 @@
-class_name Guardia_Base
+class_name Guardia
 extends CharacterBody2D
 
 # Currently Unused
@@ -51,8 +51,8 @@ func _ready() -> void:
 func take_damage(dmg):
 	self.HP -= dmg
 	if HP<= 0:
+		get_parent().checkEnemies(self)	
 		queue_free()
-		get_parent().checkEnemies(self)
 		
 # --------------------------------------------------
 # HEARING AND VISION (FOR NAVIGATION AND ATTACKS)
@@ -130,12 +130,13 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	# 1. Check if the event is a left mouse button press
 	if event is InputEventMouseButton and event.pressed and hovered and highlighted:
-		if  event.button_index == 2:
+		if event.button_index == 2:
 			get_viewport().set_input_as_handled()
 			if(!%jose.possess_cooldown):
 				take_damage(HP) ## Destroy the body
-				
+				get_parent().checkEnemies(self)	
 				%jose.possess(self)
+				
 	if event is InputEventKey:
 		if event.keycode == KEY_SHIFT:
 			if event.pressed:

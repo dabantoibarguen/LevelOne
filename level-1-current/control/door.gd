@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Door
 
 @onready var collision = $CollisionShape2D
 

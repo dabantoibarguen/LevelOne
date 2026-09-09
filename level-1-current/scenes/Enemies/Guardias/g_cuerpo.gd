@@ -1,4 +1,4 @@
-extends Guardia_Base
+extends Guardia
 
 @onready var swing = $swing0
 

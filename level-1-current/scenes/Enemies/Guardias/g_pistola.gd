@@ -1,4 +1,4 @@
-extends Guardia_Base
+extends Guardia
 
 func _ready() -> void:
 	attk_range = 200
