@@ -26,15 +26,45 @@
 - Player usable weapons ✅
 - Breakable objects (do CharacterBody2D, give "category" variable)
 - Patrol routes for enemies. Currently static until engaged
-- Clean up attacking assets and timing (mainly melee)
+- Clean up attacking assets and timing ✅
 - Dash/Dodge mechanic ✅
 - Melee hits to break bullets?
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 # Update Log
+
+## 1-09-2026
+
+### Summary
+- Multidirectional dash 
+- File organization
+- Feature polishing 
+
+### Details
+- Multidirectional dash
+    - Invisibility frames during dash
+    - Cooldown period (boolean)
+    - Moves using built in function, should not clip through solid objects
+ 
+- Feature polishing
+    - Player melee implemented and fixed (now damages enemies)
+    - Enemies have invisibility frames to avoid burst
+    - Rooms detect enemies still active to avoid <Freed Object> error
+    
+ 
+- Duplicate weapon / Weapon folder fixed in source control
+- Adding Class_name to scenes to use "is" keyword properly
+ 
+### Plans for next update
+- Visual indicators for cooldown timers
+- Health indicator for Player
+- Proper sound effects for different interactions
+- Make a "Cuarto" scene if reasonable
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## 1-09-2026
 
