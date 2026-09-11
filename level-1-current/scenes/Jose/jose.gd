@@ -80,7 +80,7 @@ func dash(dash_direction, anim):
 		velocity = dash_direction * SPEED*6
 		move_and_slide()
 	inv_frames = false
-	await get_tree().create_timer(0.8).timeout	
+	await get_tree().create_timer(2).timeout	
 	dash_cooldown = false
 
 func possess(enemy):
@@ -111,6 +111,7 @@ func shoot(sway, mouse_pos, deg):
 	bullet.pos = global_position
 	bullet.rot = get_angle_to(mouse_pos + rand_sway)
 	bullet.origin_category = category
+	bullet.speed = bullet.speed + 300
 	get_parent().add_child(bullet)	
 	$RevolverSound.pitch_scale = rng.randf_range(0.9, 1.5)
 	$RevolverSound.play()

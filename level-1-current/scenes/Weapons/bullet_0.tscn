@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blakaeo5g46ht"]
 
-[ext_resource type="Script" uid="uid://c18ry1tngh4sr" path="res://scenes/Weapons/bullet_0.gd" id="1_e6evi"]
+[ext_resource type="Script" uid="uid://bq8b65tcomg53" path="res://scenes/Weapons/bullet_0.gd" id="1_e6evi"]
 [ext_resource type="Texture2D" uid="uid://2x4h1h2l02ak" path="res://assets/sprite_sheets/bullet_sprite.png" id="2_e6evi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4k7"]
@@ -10,6 +10,8 @@ size = Vector2(133.88559, 39.038376)
 top_level = true
 z_index = -1
 scale = Vector2(-0.705672, -0.645214)
+collision_layer = 3
+collision_mask = 3
 collision_priority = 2.0
 input_pickable = false
 script = ExtResource("1_e6evi")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch14157ffw6eu"]
+
+[node name="CooldownIndicator" type="CanvasLayer" unique_id=1191802669]
+
+[node name="Control" type="Control" parent="." unique_id=1448807849]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

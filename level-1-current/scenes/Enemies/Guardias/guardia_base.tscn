@@ -16,7 +16,7 @@ shader_parameter/highlight_all = false
 [sub_resource type="SpriteFrames" id="SpriteFrames_3gcu7"]
 animations = [{
 "frames": [],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_jipf1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -32,6 +32,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_o44ki"]
 
 [node name="GuardiaBase" type="CharacterBody2D" unique_id=973501468]
+collision_layer = 2
+collision_mask = 2
 safe_margin = 1.0
 script = ExtResource("1_lvo7g")
 

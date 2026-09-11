@@ -48,6 +48,7 @@ func _ready() -> void:
 	nav.target_desired_distance = attk_range
 	$HearingRange/Hear.shape = $HearingRange/Hear.shape.duplicate()
 	$HearingRange/Hear.shape.radius = hear_range
+	#$BodyCollision.add_exception(%jose)
 	input_pickable = true
 		
 func take_damage(dmg):
@@ -145,7 +146,7 @@ func _input(event):
 				%jose.possess(self)
 				
 	if event is InputEventKey:
-		if event.keycode == KEY_SHIFT:
+		if event.keycode == KEY_E:
 			if event.pressed:
 				highlighted = true
 				sprite_shader.set_shader_parameter("highlight_all", true)
