@@ -1,14 +1,12 @@
 # Current tasks
 ### Possession Mechanics
-- Shift key press -> Highlight enemies that can be possessed ✅
-- Mouse click + Shift Key -> Take over highlighted enemy ✅
+- [Undecided] key = Highlight, Right click a highlighted = Posession ✅
 - Cooldown timer started after possession is complete ✅
-- Sprite overwrite or modification for possessed enemy ✅
-- Life, weapon and speed update based on possessed enemy ✅
 - Visual indicator of cooldown timer
     - Show indicator when it is available vs show cooldown indicator while recharging
     - Decide between: Indicator always visible, visible while pressing Shift, visible in the pause menu
-- Life indicator for current body. (EXTRA) Life indicator for bodies that can be possessed
+- Life indicator for current body.
+- (EXTRA) Life indicator for bodies that can be possessed?
 - (EXTRA) Grace period when current body dies to jump, or warning when body can only take one more hit
 
 ### UI/Gameflow
@@ -24,7 +22,7 @@
 
 ### General
 - Player usable weapons ✅
-- Breakable objects (do CharacterBody2D, give "category" variable)
+- Breakable objects
 - Patrol routes for enemies. Currently static until engaged
 - Clean up attacking assets and timing ✅
 - Dash/Dodge mechanic ✅
