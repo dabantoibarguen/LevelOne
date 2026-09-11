@@ -35,7 +35,10 @@
 - Remove collision against Jose
 - Visual indicator for Melee enemies' attack (bar, circle, etc)
 - Increase range for melee enemies, but hold that distance (chase if Player leaves range)
-- Fix desired distance for ranged enemies (do not get closer than a certain distance)
+- Fix desired distance for ranged enemies (do not get closer than a certain distance before shooting)
+- Implement: Move -> Reach attack range -> Time delay (bit longer than attk speed) -> Queue attack -> wait attack speed -> queue attack
+- If Jose leaves the attack range: Start chasing again + finish queued attack
+- Test if room shape matters so long as it includes the entry and exit
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
