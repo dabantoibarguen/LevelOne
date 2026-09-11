@@ -1,6 +1,6 @@
 # Current tasks
 ### Possession Mechanics
-- [Undecided] key = Highlight, Right click a highlighted = Posession ✅
+- E Key = Highlight, Right click highlighted enemy = Posession ✅
 - Cooldown timer started after possession is complete ✅
 - Visual indicator of cooldown timer
     - Show indicator when it is available vs show cooldown indicator while recharging
@@ -28,6 +28,14 @@
 - Dash/Dodge mechanic ✅
 - Melee hits to break bullets?
 
+# To Fix/Update:
+- Make speed variables universal (update enemy movement to be closer to Player's, or vice versa)
+- Make locked doors distinguishable from closed ones (shaders?). Fix dimensions
+- Fix walls and container corners (no one should get stuck there)
+- Remove collision against Jose
+- Visual indicator for Melee enemies' attack (bar, circle, etc)
+- Increase range for melee enemies, but hold that distance (chase if Player leaves range)
+- Fix desired distance for ranged enemies (do not get closer than a certain distance)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
