@@ -1,14 +1,12 @@
 # Current tasks
 ### Possession Mechanics
-- Shift key press -> Highlight enemies that can be possessed ✅
-- Mouse click + Shift Key -> Take over highlighted enemy ✅
+- E Key = Highlight, Right click highlighted enemy = Posession ✅
 - Cooldown timer started after possession is complete ✅
-- Sprite overwrite or modification for possessed enemy ✅
-- Life, weapon and speed update based on possessed enemy ✅
 - Visual indicator of cooldown timer
     - Show indicator when it is available vs show cooldown indicator while recharging
     - Decide between: Indicator always visible, visible while pressing Shift, visible in the pause menu
-- Life indicator for current body. (EXTRA) Life indicator for bodies that can be possessed
+- Life indicator for current body.
+- (EXTRA) Life indicator for bodies that can be possessed?
 - (EXTRA) Grace period when current body dies to jump, or warning when body can only take one more hit
 
 ### UI/Gameflow
@@ -24,17 +22,58 @@
 
 ### General
 - Player usable weapons ✅
-- Breakable objects (do CharacterBody2D, give "category" variable)
+- Breakable objects
 - Patrol routes for enemies. Currently static until engaged
-- Clean up attacking assets and timing (mainly melee)
+- Clean up attacking assets and timing ✅
 - Dash/Dodge mechanic ✅
 - Melee hits to break bullets?
 
+# To Fix/Update:
+- Make speed variables universal (update enemy movement to be closer to Player's, or vice versa)
+- Make locked doors distinguishable from closed ones (shaders?). Fix dimensions
+- Fix walls and container corners (no one should get stuck there)
+- Remove collision against Jose
+- Visual indicator for Melee enemies' attack (bar, circle, etc)
+- Increase range for melee enemies, but hold that distance (chase if Player leaves range)
+- Fix desired distance for ranged enemies (do not get closer than a certain distance before shooting)
+- Implement: Move -> Reach attack range -> Time delay (bit longer than attk speed) -> Queue attack -> wait attack speed -> queue attack
+- If Jose leaves the attack range: Start chasing again + finish queued attack
+- Test if room shape matters so long as it includes the entry and exit
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 # Update Log
+
+## 1-09-2026
+
+### Summary
+- Multidirectional dash 
+- File organization
+- Feature polishing 
+
+### Details
+- Multidirectional dash
+    - Invisibility frames during dash
+    - Cooldown period (boolean)
+    - Moves using built in function, should not clip through solid objects
+ 
+- Feature polishing
+    - Player melee implemented and fixed (now damages enemies)
+    - Enemies have invisibility frames to avoid burst
+    - Rooms detect enemies still active to avoid <Freed Object> error
+    
+ 
+- Duplicate weapon / Weapon folder fixed in source control
+- Adding Class_name to scenes to use "is" keyword properly
+ 
+### Plans for next update
+- Visual indicators for cooldown timers
+- Health indicator for Player
+- Proper sound effects for different interactions
+- Make a "Cuarto" scene if reasonable
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## 1-09-2026
 
