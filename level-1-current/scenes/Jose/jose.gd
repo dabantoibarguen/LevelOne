@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-var bullet_path = preload("res://scenes/weapons/bullet_0.tscn")
+var bullet_path = preload("res://scenes/Weapons/bullet_0.tscn")
 
 var HP = 3
 var SPEED = 325.0
