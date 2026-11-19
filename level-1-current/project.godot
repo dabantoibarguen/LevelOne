@@ -26,7 +26,8 @@ shapes/avoidance/2d/agents_radius_color=Color(1, 0.60124344, 0.697192, 0.6870000
 
 [display]
 
-window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

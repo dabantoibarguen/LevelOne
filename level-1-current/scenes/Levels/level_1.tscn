@@ -181,7 +181,7 @@ position = Vector2(-84, 21.000061)
 [node name="Camera2D" type="Camera2D" parent="jose" unique_id=1025139998]
 position = Vector2(-8, 1.0932617)
 scale = Vector2(1, 1.0932498)
-zoom = Vector2(2.2, 2.2)
+zoom = Vector2(3.2, 3.2)
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=141567534]
 navigation_polygon = SubResource("NavigationPolygon_fkdrv")
