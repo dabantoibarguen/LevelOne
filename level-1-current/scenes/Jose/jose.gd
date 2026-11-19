@@ -147,3 +147,17 @@ func _input(ev):
 		# Mouse 1 = L. Click; Mouse 2 = R. Click
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
 		pass
+	if ev is InputEventKey: #Mouse clicks
+		print(ev)
+		match ev.keycode:
+			KEY_1:
+				weapon = "Pistol"
+			KEY_2:
+				weapon = "Shotgun"
+			KEY_3:
+				weapon = "SMG"
+			KEY_4:
+				weapon = "Knife"
+		# Mouse 1 = L. Click; Mouse 2 = R. Click
+		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
+		pass
