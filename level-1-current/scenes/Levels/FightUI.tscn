@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://mmiark80p5kx"]
+
+[ext_resource type="Texture2D" uid="uid://dampl7si0trh" path="res://assets/UI/dash.jpeg" id="1_oear4"]
+[ext_resource type="Texture2D" uid="uid://d3i6saxnjxq52" path="res://assets/UI/shift.webp" id="2_lp4pe"]
+[ext_resource type="Texture2D" uid="uid://cdpsuufmcexpb" path="res://assets/UI/possess.png" id="3_f4fwn"]
+[ext_resource type="Texture2D" uid="uid://y7sulkaags5n" path="res://assets/UI/e_click.png" id="4_ac1n4"]
+
+[sub_resource type="Gradient" id="Gradient_oear4"]
+colors = PackedColorArray(0.67058825, 0.67058825, 0.67058825, 0.4745098, 0.14901961, 0.14901961, 0.14901961, 0.7254902)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lp4pe"]
+gradient = SubResource("Gradient_oear4")
+fill = 1
+fill_from = Vector2(0.53521127, 0.5023474)
+fill_to = Vector2(1, 0.016431924)
+
+[node name="UI" type="CanvasLayer" unique_id=1311044352]
+
+[node name="HP" type="Label" parent="." unique_id=1223155506]
+offset_left = 963.0
+offset_top = 10.0
+offset_right = 1121.0
+offset_bottom = 98.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 64
+text = "HP: 2"
+
+[node name="Dash" type="Control" parent="." unique_id=999223213]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1048.9999
+offset_top = 555.99994
+offset_right = 1144.9999
+offset_bottom = 651.99994
+scale = Vector2(0.8502816, 0.8684471)
+
+[node name="DashIcon" type="TextureRect" parent="Dash" unique_id=1919927909]
+layout_mode = 0
+offset_left = 5.880371
+offset_top = -21.878235
+offset_right = 85.88037
+offset_bottom = 58.121765
+texture = ExtResource("1_oear4")
+expand_mode = 1
+
+[node name="DashCD" type="TextureProgressBar" parent="Dash/DashIcon" unique_id=1942893811]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 79.97363
+offset_bottom = 79.45233
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_lp4pe")
+
+[node name="Shift" type="TextureRect" parent="Dash" unique_id=1837474653]
+layout_mode = 0
+offset_left = 5.8805876
+offset_top = 44.90773
+offset_right = 85.880585
+offset_bottom = 108.90773
+texture = ExtResource("2_lp4pe")
+expand_mode = 1
+
+[node name="Control3" type="Control" parent="." unique_id=211772682]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Possess" type="Control" parent="." unique_id=728822731]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 555.99994
+offset_right = 1056.0
+offset_bottom = 651.99994
+scale = Vector2(0.8502816, 0.8684471)
+
+[node name="PossessIcon" type="TextureRect" parent="Possess" unique_id=416670541]
+layout_mode = 0
+offset_left = 5.880371
+offset_top = -21.878235
+offset_right = 85.88037
+offset_bottom = 58.121765
+texture = ExtResource("3_f4fwn")
+expand_mode = 1
+
+[node name="PosCD" type="TextureProgressBar" parent="Possess/PossessIcon" unique_id=266516710]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 79.97363
+offset_bottom = 79.45233
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_lp4pe")
+
+[node name="E_Click" type="TextureRect" parent="Possess" unique_id=799845252]
+layout_mode = 0
+offset_left = 9.408615
+offset_top = 61.028458
+offset_right = 81.408615
+offset_bottom = 93.02845
+texture = ExtResource("4_ac1n4")
+expand_mode = 1

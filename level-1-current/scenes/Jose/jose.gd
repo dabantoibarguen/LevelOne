@@ -9,6 +9,7 @@ var SPEED = 325.0
 @onready var weapon = "Pistol"
 @onready var category = "Player"
 @onready var swing = $swing0
+@onready var UI = %UI
 
 # Weapon_Name: [attack speed, sway]. 
 var weapon_types = {
@@ -73,12 +74,15 @@ func dash(dash_direction, anim):
 		return
 	inv_frames = true
 	dash_cooldown = true
+	UI.cdDash()
 	for i in range(5):
 		#self.global_position = global_position + (dash_direction*15)
 		await get_tree().create_timer(0.03).timeout
 		$AnimatedSprite2D.play(anim)
 		velocity = dash_direction * SPEED*6
 		move_and_slide()
+	
+	# Pair this with the visual cooldown for precision later
 	inv_frames = false
 	await get_tree().create_timer(2).timeout	
 	dash_cooldown = false
@@ -87,6 +91,7 @@ func possess(enemy):
 	if(possess_cooldown):
 		return
 	possess_cooldown = true	
+	UI.cdPossess()
 	# Absorb attributes
 	HP = enemy.HP
 	SPEED = enemy.speed * 8 # Really need to fix the speed of Jose vs enemies
@@ -98,6 +103,7 @@ func possess(enemy):
 func take_damage(dmg):
 	if !inv_frames:
 		self.HP -= dmg
+		UI.updateHP(HP)
 		inv_frames = true
 		await get_tree().create_timer(0.4).timeout
 		inv_frames = false
@@ -148,7 +154,6 @@ func _input(ev):
 		# Mouse 3 = Wheel click, Mouse 4 = Scroll up; Mouse 5 = Scroll down
 		pass
 	if ev is InputEventKey: #Mouse clicks
-		print(ev)
 		match ev.keycode:
 			KEY_1:
 				weapon = "Pistol"
