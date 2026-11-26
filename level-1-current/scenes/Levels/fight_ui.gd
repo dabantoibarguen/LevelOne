@@ -1,11 +1,18 @@
 extends CanvasLayer
 
 @onready var hpText = $HP
+@onready var ammoText = $Bullets
 @onready var dashCD = %DashCD
 @onready var possessCD = %PosCD
 
 func updateHP(hp):
-	hpText.text = "HP :" + str(hp)
+	hpText.text = "HP: " + str(hp)
+	
+func updateAmmo(bul):
+	if bul is String:
+		ammoText.text = "AMMO: X" 
+	else:
+		ammoText.text = "AMMO: " + str(bul)
 	
 func cdDash(time = 2.15):
 	visualCD(dashCD, time)

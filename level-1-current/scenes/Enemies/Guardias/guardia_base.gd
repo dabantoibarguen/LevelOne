@@ -42,6 +42,9 @@ var sway = 1 # default sway
 # SETUP (READY, BASE FUNCTIONS)
 # --------------------------------------------------
 func _ready() -> void:
+	set_collision_layer_value(1, false)
+	set_collision_layer_value(2, true) 
+
 	#vision_ray = RayCast2D.new()
 	attackDelay.wait_time = attk_speed
 	startingLocation = global_position
@@ -52,11 +55,11 @@ func _ready() -> void:
 	input_pickable = true
 		
 func take_damage(dmg):
-	if !inv_frames:
-		self.HP -= dmg
-		self.inv_frames = true
-		await get_tree().create_timer(0.1).timeout
-		self.inv_frames = false
+	#if !inv_frames:
+	self.HP -= dmg
+		#self.inv_frames = true
+	#await get_tree().create_timer(0.1).timeout
+		#self.inv_frames = false
 	if HP<= 0:
 		get_parent().checkEnemies(self)	
 		queue_free()
@@ -76,7 +79,6 @@ func _on_hearing_range_body_entered(body: Node2D) -> void:
 func _on_hearing_range_body_exited(body: Node2D) -> void:
 	# Jose leaving the hearing range
 	pass
-	
 	
 # --------------------------------------------------
 # NAVIGATION (NEEDS SPEED AND ATTACK RANGE)

@@ -4,7 +4,7 @@ var parent:CharacterBody2D
 var dir:Vector2
 var dmg = 1
 
-@onready var origin_category = get_parent().category
+@onready var origin_category
 
 func play_anim():
 	visible = true
@@ -25,8 +25,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D):
+	origin_category = parent.category
 	if body is CharacterBody2D:
-		if visible and body.category != origin_category:
+		if visible and (body.category != origin_category):
 			#var parent = get_parent()
 			body.take_damage(dmg)
 		

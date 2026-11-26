@@ -1,8 +1,8 @@
 extends Guardia
 
 func _ready() -> void:
-	attk_range = 200
-	hear_range = 20
+	attk_range = 120
+	hear_range = 50
 	weapon = "Pistol"
 	super()
 

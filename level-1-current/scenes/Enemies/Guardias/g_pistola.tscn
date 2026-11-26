@@ -10,6 +10,9 @@ script = ExtResource("2_6wlxw")
 target_desired_distance = 150.0
 path_max_distance = 200.0
 
+[node name="WeaponSound" parent="." index="5" unique_id=319471375]
+volume_db = 0.0
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="body_entered" from="HearingRange" to="." method="_on_hearing_range_body_entered"]

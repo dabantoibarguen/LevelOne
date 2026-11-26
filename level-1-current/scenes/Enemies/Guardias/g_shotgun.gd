@@ -5,8 +5,8 @@ var bullet_arc = 30
 
 func _ready() -> void:
 	speed = 40
-	attk_range = 100
-	hear_range = 24
+	attk_range = 65
+	hear_range = 32
 	weapon = "Shotgun"
 	super()
 

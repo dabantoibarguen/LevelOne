@@ -1,12 +1,13 @@
 extends Guardia
 
 @onready var swing = $swing0
+@onready var meleeSound = $MeleeSound
 
 func _ready() -> void:
 	HP = 3
 	speed = 75
 	attk_speed = 0.8
-	hear_range = 15
+	hear_range = 10
 	weapon = "Knife"
 	super()
 
@@ -33,9 +34,11 @@ func _on_attack_delay_timeout() -> void:
 		swing.play_anim()
 		swing.dir = (target_position - global_position).normalized()
 		swing.rotation = get_angle_to(target_position)
-		
-		$WeaponSound.pitch_scale = rng.randf_range(3.9, 4.2)
-		$WeaponSound.play()
+		meleeSound.pitch_scale = rng.randf_range(0.7, 1.3)
+		meleeSound.play()
+		await get_tree().create_timer(2).timeout
+		if meleeSound.playing:
+			meleeSound.stop()
 			
 func _physics_process(delta: float) -> void:
 	super(delta)

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://2tfho6uarypf" path="res://scenes/Enemies/Guardias/g_pistola.tscn" id="3_fkdrv"]
 [ext_resource type="PackedScene" uid="uid://d1vq586f7g6p2" path="res://scenes/Jose/jose.tscn" id="3_vtxvj"]
 [ext_resource type="PackedScene" uid="uid://wf16sx0r8wq6" path="res://scenes/Enemies/Guardias/g_shotgun.tscn" id="5_o21ul"]
+[ext_resource type="Script" uid="uid://bey6emqvlagsd" path="res://scenes/Levels/camera.gd" id="6_4p1o3"]
 [ext_resource type="Texture2D" uid="uid://1j0lsanjomi6" path="res://assets/maps/V2.png" id="7_l5ivm"]
 [ext_resource type="PackedScene" uid="uid://mmiark80p5kx" path="res://scenes/Levels/FightUI.tscn" id="9_xxpsm"]
 [ext_resource type="Script" uid="uid://cq6f4yy2u0wou" path="res://scenes/Levels/fight_ui.gd" id="10_j85eu"]
@@ -16,6 +17,9 @@ vertices = PackedVector2Array(-131, -612.2031, -330, -610.2031, -330, -845.89844
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 0, 5, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-350, -866, 80, -864, 82, -589, -25, -589, -25, -191, -151, -190, -151, -592, -350, -590)])
 agent_radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlynv"]
+size = Vector2(549, 798)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fkdrv"]
 vertices = PackedVector2Array(1608, -1443, 1418, -1443, 1258, -1453, 1318, -1453, 1668, -1602.4609, 1668, -1099.7188, 1658, -1453, 1658, -1743, 1667.0391, -2103, 1608, -1753, 1518, -1743, 1418, -1753, 1608, -1153, 1157.6172, -1093, 1418, -1153, 1358, -1153, 1168, -1153, 1108, -1093, 1518, -1453, 1608, -2043, 1108, -2103, 1418, -2043, 1108, -2053, 1108, -1943, 1104.4922, -1943, 1104.7969, -2053, 1168, -2043, 1358, -1753, 1358, -2043, 1168, -1753, 1118, -1743, 1458, -1453, 1458, -1743, 1318, -1743, 1258, -1743, 1358, -1443, 1168, -1443, 1118, -1453)
@@ -28,6 +32,12 @@ vertices = PackedVector2Array(668.1172, -2044, 668.4531, -1954, -192, -1954, 658
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(10, 11, 12, 2), PackedInt32Array(2, 12, 13, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-276, -1529, 700, -1531, 698, -2077, -273, -2082)])
 agent_radius = 30.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14nfc"]
+size = Vector2(1042.5, 649)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4p1o3"]
+size = Vector2(746, 1148)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xxpsm"]
 texture = ExtResource("7_l5ivm")
@@ -100,7 +110,8 @@ texture_region_size = Vector2i(50, 50)
 
 [sub_resource type="TileSet" id="TileSet_o21ul"]
 tile_size = Vector2i(50, 50)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/5 = SubResource("TileSetAtlasSource_fkdrv")
 sources/0 = SubResource("TileSetAtlasSource_xxpsm")
 
@@ -175,7 +186,8 @@ texture_region_size = Vector2i(50, 50)
 
 [sub_resource type="TileSet" id="TileSet_rus8k"]
 tile_size = Vector2i(50, 50)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/5 = SubResource("TileSetAtlasSource_bswci")
 sources/0 = SubResource("TileSetAtlasSource_j85eu")
 
@@ -192,23 +204,23 @@ scale = Vector2(3.3983471, 2.5081422)
 [node name="GuardiaCuerpo" parent="Cuarto 1" unique_id=973501468 instance=ExtResource("3_3ydyl")]
 position = Vector2(-315, -740)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo2" parent="Cuarto 1" unique_id=1337912200 instance=ExtResource("3_3ydyl")]
 position = Vector2(-242, -778)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo3" parent="Cuarto 1" unique_id=561172421 instance=ExtResource("3_3ydyl")]
 position = Vector2(-305, -819)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="Room1" type="NavigationRegion2D" parent="Cuarto 1" unique_id=411741659]
 position = Vector2(-2, 3)
 navigation_polygon = SubResource("NavigationPolygon_ac15f")
 
-[node name="Room1 Collide" type="CollisionPolygon2D" parent="Cuarto 1" unique_id=694551016]
+[node name="Room1Collision" type="CollisionPolygon2D" parent="Cuarto 1" unique_id=694551016]
 position = Vector2(-108.5885, -687.55835)
 scale = Vector2(0.96611446, 1.0208333)
 polygon = PackedVector2Array(-262.29968, -180.67761, 207.62396, -182.63678, 208.65903, 110.26123, 101.01133, 112.2204, 102.0464, 463.89392, -58.390083, 466.8327, -54.249794, 112.2204, -262.29968, 114.17963)
@@ -221,16 +233,24 @@ scale = Vector2(3.40379, 2.243478)
 [node name="GuardiaShotgun" parent="Cuarto 1" unique_id=1221942392 instance=ExtResource("5_o21ul")]
 position = Vector2(-86, -592)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
+
+[node name="RoomLimits" type="CollisionShape2D" parent="Cuarto 1" unique_id=743392530]
+position = Vector2(-134.5, -527)
+shape = SubResource("RectangleShape2D_nlynv")
+disabled = true
 
 [node name="jose" parent="." unique_id=797937788 instance=ExtResource("3_vtxvj")]
 unique_name_in_owner = true
 position = Vector2(-84, 21.000061)
+scale = Vector2(1, 1)
 
-[node name="Camera2D" type="Camera2D" parent="jose" unique_id=1025139998]
+[node name="Camera" type="Camera2D" parent="jose" unique_id=1025139998]
+unique_name_in_owner = true
 position = Vector2(-8, 1.0932617)
-scale = Vector2(1, 1.0932498)
-zoom = Vector2(3, 3)
+zoom = Vector2(1.7, 1.7)
+position_smoothing_enabled = true
+script = ExtResource("6_4p1o3")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=141567534]
 navigation_polygon = SubResource("NavigationPolygon_fkdrv")
@@ -256,41 +276,46 @@ scale = Vector2(3.4019732, 2.3250184)
 [node name="GuardiaCuerpo4" parent="Cuarto 2" unique_id=887230776 instance=ExtResource("3_3ydyl")]
 position = Vector2(536, -1577)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaPistola" parent="Cuarto 2" unique_id=806465644 instance=ExtResource("3_fkdrv")]
 position = Vector2(618, -1576)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaPistola2" parent="Cuarto 2" unique_id=1921061892 instance=ExtResource("3_fkdrv")]
 position = Vector2(-189, -1775)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo5" parent="Cuarto 2" unique_id=655995667 instance=ExtResource("3_3ydyl")]
 position = Vector2(-108, -1780)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaPistola3" parent="Cuarto 2" unique_id=669836799 instance=ExtResource("3_fkdrv")]
 position = Vector2(639, -1995)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo6" parent="Cuarto 2" unique_id=1486615613 instance=ExtResource("3_3ydyl")]
 position = Vector2(569, -2023)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo7" parent="Cuarto 2" unique_id=567826825 instance=ExtResource("3_3ydyl")]
 position = Vector2(569, -1973)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Cuarto 2" unique_id=880318534]
 position = Vector2(2, 0)
 navigation_polygon = SubResource("NavigationPolygon_o21ul")
+
+[node name="RoomLimits" type="CollisionShape2D" parent="Cuarto 2" unique_id=2112540544]
+position = Vector2(216.75, -1798.5)
+shape = SubResource("RectangleShape2D_14nfc")
+disabled = true
 
 [node name="Cuarto 3" type="Area2D" parent="." unique_id=1458416074]
 position = Vector2(-2, 0)
@@ -314,42 +339,47 @@ scale = Vector2(3.4534814, 2.3485384)
 [node name="GuardiaPistola4" parent="Cuarto 3" unique_id=240981333 instance=ExtResource("3_fkdrv")]
 position = Vector2(1381, -2056)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaShotgun" parent="Cuarto 3" unique_id=1248974654 instance=ExtResource("5_o21ul")]
 position = Vector2(1285, -1612)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaShotgun2" parent="Cuarto 3" unique_id=1274911701 instance=ExtResource("5_o21ul")]
 position = Vector2(1491, -1608)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo8" parent="Cuarto 3" unique_id=836885564 instance=ExtResource("3_3ydyl")]
 position = Vector2(1200, -1747)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo9" parent="Cuarto 3" unique_id=367385764 instance=ExtResource("3_3ydyl")]
 position = Vector2(1570, -1752)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo10" parent="Cuarto 3" unique_id=1400485781 instance=ExtResource("3_3ydyl")]
 position = Vector2(1205, -1452)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaCuerpo11" parent="Cuarto 3" unique_id=410371708 instance=ExtResource("3_3ydyl")]
 position = Vector2(1557, -1449)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
 
 [node name="GuardiaPistola5" parent="Cuarto 3" unique_id=500010821 instance=ExtResource("3_fkdrv")]
 position = Vector2(1393, -1127)
 collision_layer = 1
-collision_mask = 1
+motion_mode = 0
+
+[node name="RoomLimits" type="CollisionShape2D" parent="Cuarto 3" unique_id=41350488]
+position = Vector2(1418, -1602)
+shape = SubResource("RectangleShape2D_4p1o3")
+disabled = true
 
 [node name="MainTileMap" type="TileMapLayer" parent="." unique_id=800881377]
 z_index = -1
